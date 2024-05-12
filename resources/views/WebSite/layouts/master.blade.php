@@ -84,6 +84,7 @@
     <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
 
     <!--Search Popup-->
+    <!--
     <div id="search-popup" class="search-popup">
         <div class="close-search theme-btn"><span class="fas fa-window-close"></span></div>
         <div class="popup-inner">
@@ -113,7 +114,7 @@
 
         </div>
     </div>
-
+-->
     <!-- sidebar cart item -->
     <div class="xs-sidebar-group info-group">
         <div class="xs-overlay xs-bg-black"></div>

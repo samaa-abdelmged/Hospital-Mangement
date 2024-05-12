@@ -55,7 +55,7 @@
                     <li><a class="slide-item"
                             href="{{ route('patient_laboratories') }}">{{ trans('main-sidebar_trans.lab') }}</a></li>
                     <li><a class="slide-item"
-                            href="{{ route('patient_rays') }}">{{ trans('main-sidebar_trans.lays') }}</a></li>
+                            href="{{ route('patient_rays') }}">{{ trans('main-sidebar_trans.Rays') }}</a></li>
                 </ul>
             </li>
 

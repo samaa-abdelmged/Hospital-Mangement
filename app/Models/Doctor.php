@@ -14,6 +14,7 @@ class Doctor extends Authenticatable
 
     use Translatable, HasApiTokens, HasFactory, Notifiable;
 
+
     public $translatedAttributes = ['name', 'appointments'];
 
     public $fillable = ['email', 'email_verified_at', 'password', 'phone', 'number_of_statements', 'name', 'section_id', 'status',];
@@ -34,6 +35,8 @@ class Doctor extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
+        'day_start' => 'json',
+        'day_end' => 'json',
         'email_verified_at' => 'datetime',
     ];
 

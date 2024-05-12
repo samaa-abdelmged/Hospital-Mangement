@@ -10,8 +10,9 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="left-content">
             <div>
-                <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">لوحة تحكم الموظفين</h2><br>
-                <p class="mg-b-0">مرحبا بعودتك مرة اخري {{ auth()->user()->name }}</p>
+                <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">{{ trans('employee/dashboard.employee_dashboard') }}
+                </h2><br>
+                <p class="mg-b-0"> {{ trans('employee/dashboard.welcome_back') }} {{ auth()->user()->name }}</p>
             </div>
         </div>
     </div>
@@ -24,7 +25,7 @@
             <div class="card overflow-hidden sales-card bg-primary-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                     <div class="">
-                        <h6 class="mb-3 tx-12 text-white">اجمالي عدد الفواتير</h6>
+                        <h6 class="mb-3 tx-12 text-white"> {{ trans('employee/dashboard.numbers_invoices') }}</h6>
                     </div>
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
@@ -41,7 +42,7 @@
             <div class="card overflow-hidden sales-card bg-danger-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                     <div class="">
-                        <h6 class="mb-3 tx-12 text-white">اجمالي عدد الفواتير تحت الاجراء</h6>
+                        <h6 class="mb-3 tx-12 text-white"> {{ trans('employee/dashboard.procedure_invoices') }}</h6>
                     </div>
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
@@ -59,7 +60,7 @@
             <div class="card overflow-hidden sales-card bg-success-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                     <div class="">
-                        <h6 class="mb-3 tx-12 text-white">اجمالي عدد الفواتير المكتملة</h6>
+                        <h6 class="mb-3 tx-12 text-white"> {{ trans('employee/dashboard.completed_invoices') }}</h6>
                     </div>
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
@@ -81,7 +82,7 @@
         <div class="col-md-12 col-lg-12 col-xl-12">
             <div class="card card-table-two">
                 <div class="d-flex justify-content-between">
-                    <h2 class="card-title mb-1">اخر 5 فواتير علي النظام</h2>
+                    <h2 class="card-title mb-1">{{ trans('employee/dashboard.last_invoices') }}</h2>
                     <br>
                     <br>
                 </div><br>
@@ -90,11 +91,11 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>تاريخ الفاتورة</th>
-                                <th>اسم المريض</th>
-                                <th>اسم الطبيب</th>
-                                <th>المطلوب</th>
-                                <th>حالة الفاتورة</th>
+                                <th> {{ trans('employee/dashboard.invoice_date') }}</th>
+                                <th> {{ trans('employee/dashboard.patient_name') }}</th>
+                                <th>{{ trans('employee/dashboard.doctor_name') }} </th>
+                                <th>{{ trans('employee/dashboard.required') }}</th>
+                                <th> {{ trans('employee/dashboard.invoice_status') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,14 +108,16 @@
                                     <td class="tx-right tx-medium tx-danger">{{ $invoice->description }}</td>
                                     <td class="tx-right tx-medium tx-inverse">
                                         @if ($invoice->case == 0)
-                                            <span class="badge badge-danger">تحت الاجراء</span>
+                                            <span class="badge badge-danger">
+                                                {{ trans('employee/dashboard.under_procedure') }}</span>
                                         @else
-                                            <span class="badge badge-success">مكتملة</span>
+                                            <span
+                                                class="badge badge-success">{{ trans('employee/dashboard.completed') }}</span>
                                         @endif
                                     </td>
                                 </tr>
                             @empty
-                                لاتوجد بيانات
+                                {{ trans('employee/dashboard.no_data') }}
                             @endforelse
                         </tbody>
                     </table>

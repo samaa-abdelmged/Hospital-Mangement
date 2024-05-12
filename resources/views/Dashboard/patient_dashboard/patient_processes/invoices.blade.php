@@ -50,7 +50,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $invoice->invoice_date }}</td>
                                         <td>{{ $invoice->doctor->name }}</td>
-                                        <td>{{ $invoice->service->name }}</td>
+                                        <td>{{ $invoice->service->name ?? $invoice->Group->name }}</td>
                                         <td>{{ $invoice->total_with_tax }}</td>
                                     </tr>
                                 @endforeach

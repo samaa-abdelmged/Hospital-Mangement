@@ -20,22 +20,20 @@
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">{{ trans('doctor/reveals.diagnosis') }}</label>
-                        <textarea class="form-control" name="diagnosis" rows="6"></textarea>
+                        <textarea class="form-control @error('diagnosis') is-invalid @enderror" name="diagnosis" rows="6"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">{{ trans('doctor/reveals.medicins') }}</label>
-                        <textarea class="form-control" name="medicine" rows="6"></textarea>
+                        <textarea class="form-control  @error('medicine') is-invalid @enderror" name="medicine" rows="6"></textarea>
                     </div>
 
 
                     <div class="form-group" style="position:relative;">
                         <label>{{ trans('doctor/reveals.review_date') }} </label>
-                        <input class="form-control fc-datepicker" id="review_date" name="review_date" type="text"
-                            required>
+                        <input class="form-control fc-datepicker  @error('review_date') is-invalid @enderror"
+                            id="review_date" name="review_date" type="text">
                     </div>
-
-
 
                 </div>
                 <div class="modal-footer">

@@ -21,7 +21,8 @@ Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
-    ], function () {
+    ],
+    function () {
 
         Route::middleware(['auth:employee'])->group(function () {
 
@@ -29,10 +30,10 @@ Route::group(
                 return Route::post('/livewire/update', $handle);
 
             });
-            
+
             //exceptions
             Route::get('/404', function () {
-                return view('Dashboard.404');
+                return view('Dashboard.employee_dashboard.404');
             })->name('404');
 
             //Ray
@@ -47,4 +48,5 @@ Route::group(
 
         });
 
-    });
+    }
+);

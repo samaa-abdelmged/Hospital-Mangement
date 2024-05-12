@@ -1,6 +1,6 @@
 @extends('Dashboard.layouts.master-employee')
 @section('title')
-    اضافة تشخيص
+    {{ trans('employee/invoices_laboratorie.add_diagnosis') }}
 @stop
 @section('css')
 
@@ -10,7 +10,8 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">اضافة تشخيص</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                <h4 class="content-title mb-0 my-auto"> {{ trans('employee/invoices_laboratorie.add_diagnosis') }}</h4><span
+                    class="text-muted mt-1 tx-13 mr-2 mb-0">/
                     {{ $invoice->Patient->name }}</span>
             </div>
         </div>
@@ -28,14 +29,19 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">التشخيص</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description_employee" rows="3"></textarea>
+                            <label for="exampleFormControlTextarea1">
+                                {{ trans('employee/invoices_laboratorie.diagnosis') }}</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description_employee" rows="3" required> 
+                               {{ $invoice->description_employee }}
+                             </textarea>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">المرفقات</label>
+                            <label for="exampleFormControlTextarea1">
+                                {{ trans('employee/invoices_laboratorie.attachments') }}</label>
                             <input type="file" name="photos[]" accept="image/*" multiple>
                         </div>
-                        <button type="submit" class="btn btn-primary">تاكيد</button>
+                        <button type="submit" class="btn btn-primary">
+                            {{ trans('employee/invoices_laboratorie.submit') }}</button>
                     </form>
                 </div>
             </div>

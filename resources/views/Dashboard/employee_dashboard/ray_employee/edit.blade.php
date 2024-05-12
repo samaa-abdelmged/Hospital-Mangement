@@ -4,9 +4,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">تعديل بيانات موظف</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{ trans('Dashboard/rays_and_labs.edit_employee_data') }}
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>s
                 </button>
             </div>
             <form action="{{ route('ray_employee.update', $ray_employee->id) }}" method="post">
@@ -14,13 +15,13 @@
                 {{ csrf_field() }}
                 @csrf
                 <div class="modal-body">
-                    <label for="exampleInputPassword1">الاسم</label>
+                    <label for="exampleInputPassword1">{{ trans('Dashboard/rays_and_labs.name') }}</label>
                     <input type="text" value="{{ $ray_employee->name }}" name="name" class="form-control"><br>
 
-                    <label for="exampleInputPassword1">البريد الالكتروني</label>
+                    <label for="exampleInputPassword1"> {{ trans('Dashboard/rays_and_labs.email') }}</label>
                     <input type="email" value="{{ $ray_employee->email }}" name="email" class="form-control"><br>
 
-                    <label for="exampleInputPassword1">كلمة المرور</label>
+                    <label for="exampleInputPassword1"> {{ trans('Dashboard/rays_and_labs.password') }}</label>
                     <input type="password" name="password" class="form-control" autocomplete="new-password">
                 </div>
                 <div class="modal-footer">

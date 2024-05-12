@@ -34,13 +34,13 @@ class StoreInsuranceRequest extends FormRequest
     public function messages()
     {
         return [
-            'insurance_code.required' => trans('validation.required'),
-            'discount_percentage.required' => trans('validation.required'),
-            'discount_percentage.numeric' => trans('validation.numeric'),
-            'Company_rate.required' => trans('validation.required'),
-            'Company_rate.numeric' => trans('validation.numeric'),
-            'name.required' => trans('validation.required'),
-            'name.unique' => trans('validation.unique'),
+            'insurance_code.required' => trans('dashboard\validation.required'),
+            'discount_percentage.required' => trans('dashboard\validation.required'),
+            'discount_percentage.numeric' => trans('dashboard\validation.required'),
+            'Company_rate.required' => trans('dashboard\validation.required'),
+            'Company_rate.numeric' => trans('dashboard\validation.required'),
+            'name.required' => trans('dashboard\validation.required'),
+            'name.unique' => trans('dashboard\validation.required'),
         ];
     }
 }

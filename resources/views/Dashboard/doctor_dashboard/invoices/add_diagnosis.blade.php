@@ -20,12 +20,12 @@
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">{{ trans('doctor/reveals.diagnosis') }}</label>
-                        <textarea class="form-control" name="diagnosis" rows="6"></textarea>
+                        <textarea class="form-control @error('diagnosis') is-invalid @enderror" name="diagnosis" rows="6"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">{{ trans('doctor/reveals.medicins') }}</label>
-                        <textarea class="form-control" name="medicine" rows="6"></textarea>
+                        <textarea class="form-control @error('medicine') is-invalid @enderror" name="medicine" rows="6"></textarea>
                     </div>
 
                 </div>

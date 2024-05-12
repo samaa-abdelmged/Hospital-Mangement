@@ -1,6 +1,6 @@
 @extends('Dashboard.layouts.master-employee')
 @section('title')
-    الكشوفات
+    {{ trans('employee/invoices_laboratorie.reveals') }}
 @stop
 @section('css')
 
@@ -10,7 +10,8 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">صور التحاليل</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                <h4 class="content-title mb-0 my-auto"> {{ trans('employee/invoices_laboratorie.test_pictures') }}</h4><span
+                    class="text-muted mt-1 tx-13 mr-2 mb-0">/
                     {{ $laboratorie->Patient->name }}</span>
             </div>
         </div>
@@ -20,7 +21,7 @@
 @section('content')
 
     <div class="form-group">
-        <label for="exampleFormControlTextarea1">ملاحظات دكتور المحتبر</label>
+        <label for="exampleFormControlTextarea1"> {{ trans('employee/invoices_laboratorie.lab_doctor_notes') }}</label>
         <textarea readonly class="form-control" id="exampleFormControlTextarea1" rows="3">{{ $laboratorie->description_employee }}</textarea>
     </div>
 
@@ -50,6 +51,5 @@
 
 @endsection
 @section('js')
-
 
 @endsection

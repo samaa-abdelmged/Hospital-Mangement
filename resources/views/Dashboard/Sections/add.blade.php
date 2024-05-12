@@ -12,7 +12,7 @@
                 @csrf
                 <div class="modal-body">
                     <label for="exampleInputPassword1">{{ trans('Dashboard/sections_trans.name_sections') }}</label>
-                    <input type="text" name="name" class="form-control">
+                    <input type="text" name="name" class="form-control  @error('name') is-invalid @enderror">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"

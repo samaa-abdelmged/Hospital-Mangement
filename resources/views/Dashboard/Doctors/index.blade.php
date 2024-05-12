@@ -57,7 +57,6 @@
                                     <th>{{ trans('dashboard/doctors.appointments') }}</th>
                                     <th>{{ trans('dashboard/doctors.Status') }}</th>
                                     <th>{{ trans('dashboard/doctors.created_at') }}</th>
-                                    <th>{{ trans('dashboard/doctors.Processes') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,9 +81,10 @@
                                         <td>{{ $doctor->section->name }}</td>
                                         <td>{{ $doctor->phone }}</td>
                                         <td>
-                                            @foreach ($doctor->doctorappointments as $appointment)
-                                                {{ $appointment->name }}
-                                            @endforeach
+                                            <a href="{{ route('DoctorTable', ['id' => $doctor->id]) }}">
+                                                <i class="fa fa-table" style="font-size:30px;"></i>
+                                            </a>
+
                                         </td>
                                         <td>
                                             <div
@@ -105,17 +105,20 @@
                                                     <a class="dropdown-item"
                                                         href="{{ route('Doctors.edit', $doctor->id) }}"><i
                                                             style="color: #0ba360"
-                                                            class="text-success ti-user"></i>&nbsp;&nbsp;تعديل البيانات</a>
+                                                            class="text-success ti-user"></i>&nbsp;&nbsp;
+                                                        {{ trans('dashboard/doctors.edit_data') }}</a>
                                                     <a class="dropdown-item" href="#" data-toggle="modal"
                                                         data-target="#update_password{{ $doctor->id }}"><i
-                                                            class="text-primary ti-key"></i>&nbsp;&nbsp;تغير كلمة المرور</a>
+                                                            class="text-primary ti-key"></i>&nbsp;&nbsp;
+                                                        {{ trans('dashboard/doctors.change_password') }} </a>
                                                     <a class="dropdown-item" href="#" data-toggle="modal"
                                                         data-target="#update_status{{ $doctor->id }}"><i
-                                                            class="text-warning ti-back-right"></i>&nbsp;&nbsp;تغير
-                                                        الحالة</a>
+                                                            class="text-warning ti-back-right"></i>&nbsp;&nbsp;
+                                                        {{ trans('dashboard/doctors.change_status') }}</a>
                                                     <a class="dropdown-item" href="#" data-toggle="modal"
                                                         data-target="#delete{{ $doctor->id }}"><i
-                                                            class="text-danger  ti-trash"></i>&nbsp;&nbsp;حذف البيانات</a>
+                                                            class="text-danger  ti-trash"></i>&nbsp;&nbsp;{{ trans('dashboard/doctors.delete') }}
+                                                    </a>
                                                 </div>
                                             </div>
 
@@ -192,7 +195,6 @@
             });
         });
     </script>
-
 
 
 @endsection

@@ -1,6 +1,6 @@
 @extends('Dashboard.layouts.master')
 @section('title')
-    سندات الصرف
+    {{ trans('Dashboard/accounts.exchange_bills') }}
 @stop
 @section('css')
     <!-- Internal Data table css -->
@@ -22,8 +22,9 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">الحسابات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ سندات
-                    الصرف</span>
+                <h4 class="content-title mb-0 my-auto">{{ trans('Dashboard/accounts.accounts') }}</h4><span
+                    class="text-muted mt-1 tx-13 mr-2 mb-0">/ {{ trans('Dashboard/accounts.exchange_bills') }}
+                </span>
             </div>
         </div>
     </div>
@@ -39,7 +40,7 @@
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('Payment.create') }}" class="btn btn-primary" role="button"
-                            aria-pressed="true">اضافة سند جديد</a>
+                            aria-pressed="true">{{ trans('Dashboard/accounts.add_new_exchange') }} </a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -48,11 +49,16 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>اسم المريض</th>
-                                    <th>المبلغ</th>
-                                    <th>البيان</th>
-                                    <th>تاريخ الاضافة</th>
-                                    <th>العمليات</th>
+                                    <th>{{ trans('Dashboard/accounts.patient_name') }}
+                                    </th>
+                                    <th>{{ trans('Dashboard/accounts.amount') }}
+                                    </th>
+                                    <th>{{ trans('Dashboard/accounts.statement') }}
+                                    </th>
+                                    <th> {{ trans('Dashboard/accounts.add_date') }}
+                                    </th>
+                                    <th>{{ trans('Dashboard/accounts.oprations') }}
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,7 +78,8 @@
                                                     class="las la-trash"></i></a>
 
                                             <a href="{{ route('Payment.show', $payment->id) }}"
-                                                class="btn btn-primary btn-sm" target="_blank" title="طباعه سند قبض"><i
+                                                class="btn btn-primary btn-sm" target="_blank"
+                                                title={{ trans('Dashboard/accounts.print_exchange') }}><i
                                                     class="fas fa-print"></i></a>
                                         </td>
                                     </tr>

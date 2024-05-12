@@ -32,10 +32,10 @@ class StoreSingleServiceRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => trans('validation.required'),
-            'name.unique' => trans('validation.unique'),
-            'price.required' => trans('validation.required'),
-            'price.numeric' => trans('validation.numeric'),
+            'name.required' => trans('dashboard\validation.required'),
+            'name.unique' => trans('dashboard\validation.unique'),
+            'price.required' => trans('dashboard\validation.required'),
+            'price.numeric' => trans('dashboard\validation.numeric'),
         ];
     }
 }

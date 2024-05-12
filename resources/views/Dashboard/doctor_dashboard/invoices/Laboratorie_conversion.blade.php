@@ -19,7 +19,7 @@
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">{{ trans('doctor/reveals.required') }}</label>
-                        <textarea class="form-control" name="description" rows="6"></textarea>
+                        <textarea class="form-control  @error('description') is-invalid @enderror" name="description" rows="6"></textarea>
                     </div>
 
                 </div>

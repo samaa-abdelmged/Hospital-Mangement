@@ -37,17 +37,17 @@ class StoreAmbulanceRequest extends FormRequest
     public function messages()
     {
         return [
-            'car_number.required' => trans('validation.required'),
-            'car_model.required' => trans('validation.required'),
-            'car_year_made.required' => trans('validation.required'),
-            'car_year_made.numeric' => trans('validation.numeric'),
-            'car_type.required' => trans('validation.required'),
-            'driver_name.required' => trans('validation.required'),
-            'driver_name.unique' => trans('validation.unique'),
-            'driver_license_number.required' => trans('validation.required'),
-            'driver_license_number.numeric' => trans('validation.numeric'),
-            'driver_phone.required' => trans('validation.required'),
-            'driver_phone.numeric' => trans('validation.numeric'),
+            'car_number.required' => trans('dashboard\validation.required'),
+            'car_model.required' => trans('dashboard\validation.required'),
+            'car_year_made.required' => trans('dashboard\validation.required'),
+            'car_year_made.numeric' => trans('dashboard\validation.numeric'),
+            'car_type.required' => trans('dashboard\validation.required'),
+            'driver_name.required' => trans('dashboard\validation.required'),
+            'driver_name.unique' => trans('dashboard\validation.unique'),
+            'driver_license_number.required' => trans('dashboard\validation.required'),
+            'driver_license_number.numeric' => trans('dashboard\validation.numeric'),
+            'driver_phone.required' => trans('dashboard\validation.required'),
+            'driver_phone.numeric' => trans('dashboard\validation.numeric'),
         ];
     }
 }

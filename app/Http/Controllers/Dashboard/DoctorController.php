@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreDoctorRequest;
+use App\Http\Requests\UpdateDoctorRequest;
 use App\Interfaces\Doctors\DoctorRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -26,7 +28,7 @@ class DoctorController extends Controller
         return $this->Doctors->create();
     }
 
-    public function store(Request $request)
+    public function store(StoreDoctorRequest $request)
     {
         return $this->Doctors->store($request);
     }
@@ -41,7 +43,7 @@ class DoctorController extends Controller
         return $this->Doctors->edit($id);
     }
 
-    public function update(Request $request)
+    public function update(UpdateDoctorRequest $request)
     {
         return $this->Doctors->update($request);
     }
@@ -68,4 +70,11 @@ class DoctorController extends Controller
         ]);
         return $this->Doctors->update_status($request);
     }
+
+    public function DoctorTable($id)
+    {
+        return $this->Doctors->DoctorTable($id);
+    }
+
+
 }

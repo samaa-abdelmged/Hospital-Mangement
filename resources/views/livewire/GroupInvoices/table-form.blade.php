@@ -11,9 +11,11 @@
 <div class="row">
 
 
-    <button class="btn btn-primary" onclick="showtable()" type="submit">عرض الخدمات </button><br>
+    <button class="btn btn-primary" onclick="showtable()" type="submit"> {{ trans('dashboard/invoices.view_services') }}
+    </button><br>
     &nbsp; &nbsp;&nbsp;
-    <button class="btn btn-primary" onclick="showform()" type="submit"> اضافة فاتورة جديدة </button><br>
+    <button class="btn btn-primary" onclick="showform()" type="submit"> {{ trans('dashboard/invoices.add_new_invoice') }}
+    </button><br>
 </div>
 
 
@@ -34,18 +36,18 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>اسم الخدمة</th>
-                <th>اسم المريض</th>
-                <th>تاريخ الفاتورة</th>
-                <th>اسم الدكتور</th>
-                <th>القسم</th>
-                <th>سعر الخدمة</th>
-                <th>قيمة الخصم</th>
-                <th>نسبة الضريبة</th>
-                <th>قيمة الضريبة</th>
-                <th>الاجمالي مع الضريبة</th>
-                <th>نوع الفاتورة</th>
-                <th>العمليات</th>
+                <th> {{ trans('dashboard/invoices.service_name') }} </th>
+                <th> {{ trans('dashboard/invoices.patient_name') }}</th>
+                <th> {{ trans('dashboard/invoices.invoice_date') }}</th>
+                <th> {{ trans('dashboard/invoices.doctor') }} </th>
+                <th> {{ trans('dashboard/invoices.section') }}</th>
+                <th> {{ trans('dashboard/invoices.service_name') }}</th>
+                <th> {{ trans('dashboard/invoices.discount_value') }} </th>
+                <th> {{ trans('dashboard/invoices.tax_rate') }}</th>
+                <th> {{ trans('dashboard/invoices.tax_value') }} </th>
+                <th> {{ trans('dashboard/invoices.total_with_tax') }}</th>
+                <th> {{ trans('dashboard/invoices.invoice_type') }}</th>
+                <th> {{ trans('dashboard/invoices.operations') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -62,7 +64,8 @@
                     <td>{{ $group_invoice->tax_rate }}%</td>
                     <td>{{ number_format($group_invoice->tax_value, 2) }}</td>
                     <td>{{ number_format($group_invoice->total_with_tax, 2) }}</td>
-                    <td>{{ $group_invoice->type == 1 ? 'نقدي' : 'اجل' }}</td>
+                    <td>{{ $group_invoice->type == 1 ? trans('dashboard/invoices.cach') : trans('dashboard/invoices.postponed') }}
+                    </td>
                     <td>
                         <button wire:click="edit({{ $group_invoice->id }})" class="btn btn-primary btn-sm"><i
                                 class="fa fa-edit"></i></button>
@@ -80,48 +83,62 @@
 </div>
 
 <form wire:submit.prevent="store" autocomplete="off" id="form">
-    <h2 style="font-weight: bold; font-family: Cairo; color: rgb(224, 232, 236);">اضافة فاتورة جديدة</h2>
+    <h2 style="font-weight: bold; font-family: Cairo; color: rgb(224, 232, 236);">
+        {{ trans('dashboard/invoices.add_new_invoice') }} </h2>
     <br>
     <br>
 
     @csrf
     <div class="row">
         <div class="col">
-            <label>اسم المريض</label>
-            <select wire:model="patient_id" class="form-control" required>
-                <option value="">-- اختار من القائمة --</option>
+            <label> {{ trans('dashboard/invoices.patient_name') }}</label>
+            <select wire:model="patient_id" id="patient_id" name="patient_id" class="form-control">
+                <option value="">-- {{ trans('dashboard/invoices.select_from_list') }}--</option>
                 @foreach ($Patients as $Patient)
                     <option value="{{ $Patient->id }}">{{ $Patient->name }}</option>
                 @endforeach
             </select>
+            @error('patient_id')
+                <span class="alert alert-danger">{{ $message }}</span>
+            @enderror
         </div>
 
 
         <div class="col">
-            <label>اسم الدكتور</label>
-            <select wire:model="doctor_id" wire:change="get_section" class="form-control" id="exampleFormControlSelect1"
-                required>
-                <option value="">-- اختار من القائمة --</option>
+            <label> {{ trans('dashboard/invoices.doctor') }}</label>
+            <select wire:model="doctor_id" wire:change="get_section" id="doctor_id" name="doctor_id"
+                class="form-control" id="exampleFormControlSelect1">
+                <option value="">-- {{ trans('dashboard/invoices.select_from_list') }}--</option>
                 @foreach ($Doctors as $Doctor)
                     <option value="{{ $Doctor->id }}">{{ $Doctor->name }}</option>
                 @endforeach
             </select>
+            @error('doctor_id')
+                <span class="alert alert-danger">{{ $message }}</span>
+            @enderror
         </div>
 
 
         <div class="col">
-            <label>القسم</label>
+            <label>{{ trans('dashboard/invoices.section') }}</label>
             <input wire:model="section_id" type="text" class="form-control" readonly>
         </div>
 
+
         <div class="col">
-            <label>نوع الفاتورة</label>
-            <select wire:model="type" class="form-control" {{ $updateMode == true ? 'disabled' : '' }}>
-                <option value="">-- اختار من القائمة --</option>
-                <option value="1">نقدي</option>
-                <option value="2">اجل</option>
+            <label>{{ trans('dashboard/invoices.invoice_type') }} </label>
+            <select wire:model="type" id="type" name="type" class="form-control"
+                {{ $updateMode == true ? 'disabled' : '' }}>
+                <option value="">-- {{ trans('dashboard/invoices.select_from_list') }} --</option>
+                <option value="1">{{ trans('dashboard/invoices.cach') }}</option>
+                <option value="2">
+                    {{ trans('dashboard/invoices.postponed') }}</option>
             </select>
+            @error('type')
+                <span class="alert alert-danger">{{ $message }}</span>
+            @enderror
         </div>
+
 
 
     </div><br>
@@ -140,33 +157,44 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>اسم الخدمة</th>
-                                    <th>سعر الخدمة</th>
-                                    <th>قيمة الخصم</th>
-                                    <th>نسبة الضريبة</th>
-                                    <th>قيمة الضريبة</th>
-                                    <th>الاجمالي مع الضريبة</th>
+                                    <th>{{ trans('dashboard/invoices.service_name') }} </th>
+                                    <th> {{ trans('dashboard/invoices.service_price') }}</th>
+                                    <th>{{ trans('dashboard/invoices.discount_value') }} </th>
+                                    <th> {{ trans('dashboard/invoices.tax_rate') }}</th>
+                                    <th>{{ trans('dashboard/invoices.tax_value') }} </th>
+                                    <th> {{ trans('dashboard/invoices.total_with_tax') }} </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>
-                                        <select wire:model="Group_id" class="form-control" wire:change="get_price"
-                                            id="exampleFormControlSelect1">
-                                            <option value="">-- اختار الخدمة --</option>
+                                        <select wire:model="Group_id" id="Group_id" name="Group_id"
+                                            class="form-control" wire:change="get_price" id="exampleFormControlSelect1">
+                                            <option value="">--
+                                                {{ trans('dashboard/invoices.select_from_list') }} --</option>
                                             @foreach ($Groups as $Group)
                                                 <option value="{{ $Group->id }}">{{ $Group->name }}</option>
                                             @endforeach
                                         </select>
+                                        @error('Group_id')
+                                            <span class="alert alert-danger">{{ $message }}</span>
+                                        @enderror
                                     </td>
                                     <td><input wire:model="price" type="text" class="form-control"
                                             wire:change="updateValues" readonly></td>
-                                    <td><input wire:model="discount_value" type="text" class="form-control"
-                                            wire:change="updateValues">
+
+                                    <td><input wire:model="discount_value" name="discount_value" id="discount_value"
+                                            type="text" class="form-control" wire:change="updateValues">
+                                        @error('discount_value')
+                                            <span class="alert alert-danger">{{ $message }}</span>
+                                        @enderror
                                     </td>
-                                    <th><input wire:model="tax_rate" type="text" class="form-control"
-                                            wire:change="updateValues">
+                                    <th><input wire:model="tax_rate" name="tax_rate" id="tax_rate" type="text"
+                                            class="form-control" wire:change="updateValues">
+                                        @error('tax_rate')
+                                            <span class="alert alert-danger">{{ $message }}</span>
+                                        @enderror
                                     </th>
                                     <td><input type="text" class="form-control" value="{{ $tax_value }}"
                                             wire:change="updateValues" readonly></td>
@@ -180,7 +208,7 @@
             </div><!-- bd -->
         </div>
     </div>
-    <input class="btn btn-outline-success" type="submit" value="تاكيد البيانات">
+    <input class="btn btn-outline-success" type="submit" value={{ trans('dashboard/invoices.confirm_data') }}>
 </form>
 
 <!-- Modal -->
@@ -189,18 +217,20 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">حذف بيانات الفاتورة</h5>
+                <h5 class="modal-title" id="exampleModalLabel">
+                    {{ trans('dashboard/invoices.delete_invoice_data') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
             <div class="modal-body">
-                هل انت متاكد من عملية الحذف
-            </div>
+                {{ trans('dashboard/invoices.deletion_process') }} </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-                <button type="button" wire:click.prevent="destroy()" class="btn btn-danger">حذف</button>
+                <button type="button" class="btn btn-secondary"
+                    data-dismiss="modal">{{ trans('dashboard/invoices.close') }}</button>
+                <button type="button" wire:click.prevent="destroy()"
+                    class="btn btn-danger">{{ trans('dashboard/invoices.delete') }}</button>
             </div>
 
         </div>

@@ -10,20 +10,17 @@
                 <div class="swiper-slide slide">
                     <div class="auto-container">
                         <div class="row clearfix">
-
                             <!-- Content Column -->
                             <div class="content-column col-lg-6 col-md-12 col-sm-12">
                                 <div class="inner-column">
-                                    <h2>شريكك الصحي الأكثر ثقة مدى الحياة</h2>
-                                    <div class="text">
-                                        نحن نقدم استشارات مجانية وأفضل إدارة مشروع لك
-                                        الأفكار ، 100٪ التسليم مضمون
-                                    </div>
+                                    <h2>{{ trans('website/welcome.health_partner') }}</h2>
                                     <div class="btn-box">
-                                        <a href="contact.html" class="theme-btn appointment-btn"><span
-                                                class="txt">المواعيد</span></a>
-                                        <a href="services.html" class="theme-btn services-btn">الخدمات</a>
+                                        <a href="{{ route('ShowDoctorTable') }}" class="theme-btn appointment-btn"><span
+                                                class="txt">{{ trans('website/welcome.appointments') }}</span></a>
+                                        <a href="{{ route('ShowServices') }}" class="theme-btn appointment-btn"><span
+                                                class="txt">{{ trans('website/welcome.services') }}</span></a>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -49,15 +46,14 @@
                             <!-- Content Column -->
                             <div class="content-column col-lg-6 col-md-12 col-sm-12">
                                 <div class="inner-column">
-                                    <h2>Your Most Trusted Health Partner For Life.</h2>
-                                    <div class="text">We offer free consulting and the best project management for your
-                                        ideas, 100% delivery guaranteed.
-                                    </div>
+                                    <h2>{{ trans('website/welcome.health_partner') }}</h2>
                                     <div class="btn-box">
-                                        <a href="contact.html" class="theme-btn appointment-btn"><span
-                                                class="txt">Appointment</span></a>
-                                        <a href="services.html" class="theme-btn services-btn">Services</a>
+                                        <a href="{{ route('ShowDoctorTable') }}" class="theme-btn appointment-btn"><span
+                                                class="txt">{{ trans('website/welcome.appointments') }}</span></a>
+                                        <a href="{{ route('ShowServices') }}" class="theme-btn appointment-btn"><span
+                                                class="txt">{{ trans('website/welcome.services') }}</span></a>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -83,17 +79,17 @@
                             <!-- Content Column -->
                             <div class="content-column col-lg-6 col-md-12 col-sm-12">
                                 <div class="inner-column">
-                                    <h2>Your Most Trusted Health Partner For Life.</h2>
-                                    <div class="text">We offer free consulting and the best project management for your
-                                        ideas, 100% delivery guaranteed.
-                                    </div>
+                                    <h2>{{ trans('website/welcome.health_partner') }}</h2>
                                     <div class="btn-box">
-                                        <a href="contact.html" class="theme-btn appointment-btn"><span
-                                                class="txt">Appointment</span></a>
-                                        <a href="services.html" class="theme-btn services-btn">Services</a>
+                                        <a href="{{ route('ShowDoctorTable') }}" class="theme-btn appointment-btn"><span
+                                                class="txt">{{ trans('website/welcome.appointments') }}</span></a>
+                                        <a href="{{ route('ShowServices') }}" class="theme-btn appointment-btn"><span
+                                                class="txt">{{ trans('website/welcome.services') }}</span></a>
                                     </div>
+
                                 </div>
                             </div>
+
 
                             <!-- Image Column -->
                             <div class="image-column col-lg-6 col-md-12 col-sm-12">
@@ -130,13 +126,11 @@
                             <div class="border-line"></div>
                             <!-- Sec Title -->
                             <div class="sec-title">
-                                <h2>من نحن <br> الريادة في الصحة</h2>
+                                <h2> {{ trans('website/welcome.leadership') }}</h2>
                                 <div class="separator"></div>
                             </div>
-                            <div class="text">أين أنت في قلب مهمتنا. نأمل أن تعتبرنا منزلك الطبي - المكان الذي تشعر فيه
-                                بالأمان والراحة والرعاية. كمجموعة طبية متعددة التخصصات
+                            <div class="text">{{ trans('website/welcome.our_mission') }}
                             </div>
-                            <a href="about.html" class="theme-btn btn-style-one"><span class="txt">المزيد عنا</span></a>
                         </div>
                     </div>
 
@@ -167,9 +161,8 @@
                     <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <div class="upper-box">
                             <div class="icon flaticon-doctor-stethoscope"></div>
-                            <h3><a href="#">العلاج الطبي</a></h3>
+                            <h3> {{ trans('website/welcome.medical_treatment') }}</h3>
                         </div>
-                        <div class="text">سواء أكنت تتخذ خطواتك الأولى ، أو مجرد إيجاد خطوتك</div>
                     </div>
                 </div>
 
@@ -178,9 +171,8 @@
                     <div class="inner-box wow fadeInLeft" data-wow-delay="250ms" data-wow-duration="1500ms">
                         <div class="upper-box">
                             <div class="icon flaticon-ambulance-side-view"></div>
-                            <h3><a href="#">مساعدة الطوارئ</a></h3>
+                            <h3> {{ trans('website/welcome.emergency_help') }}</h3>
                         </div>
-                        <div class="text">سواء أكنت تتخذ خطواتك الأولى ، أو مجرد إيجاد خطوتك</div>
                     </div>
                 </div>
 
@@ -189,9 +181,8 @@
                     <div class="inner-box wow fadeInLeft" data-wow-delay="500ms" data-wow-duration="1500ms">
                         <div class="upper-box">
                             <div class="icon fas fa-user-md"></div>
-                            <h3><a href="#">أطباء مؤهلين</a></h3>
+                            <h3> {{ trans('website/welcome.qualified_doctors') }}</h3>
                         </div>
-                        <div class="text">سواء أكنت تتخذ خطواتك الأولى ، أو مجرد إيجاد خطوتك</div>
                     </div>
                 </div>
 
@@ -200,9 +191,8 @@
                     <div class="inner-box wow fadeInLeft" data-wow-delay="750ms" data-wow-duration="1500ms">
                         <div class="upper-box">
                             <div class="icon fas fa-briefcase-medical"></div>
-                            <h3><a href="#">محترفين طبيا</a></h3>
+                            <h3> {{ trans('website/welcome.medical_professional') }}</h3>
                         </div>
-                        <div class="text">سواء أكنت تتخذ خطواتك الأولى ، أو مجرد إيجاد خطوتك</div>
                     </div>
                 </div>
 
@@ -222,195 +212,148 @@
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <!-- Sec Title -->
                         <div class="sec-title light">
-                            <h2>الاقسام</h2>
+                            <h2>{{ trans('website/welcome.sections') }}</h2>
                             <div class="separator"></div>
                         </div>
                         <!--Tab Btns-->
                         <ul class="tab-btns tab-buttons clearfix">
-                            <li data-tab="#tab-urology" class="tab-btn active-btn">قسم المسالك البولية</li>
-                            <li data-tab="#tab-department" class="tab-btn">قسم المخ والأعصاب</li>
-                            <li data-tab="#tab-gastrology" class="tab-btn">قسم أمراض الجهاز الهضمي</li>
-                            <li data-tab="#tab-cardiology" class="tab-btn">قسم أمراض القلب</li>
-                            <li data-tab="#tab-eye" class="tab-btn">قسم العناية بالعيون</li>
+                            <li data-tab="#women" class="tab-btn active-btn">
+                                {{ trans('website/welcome.women_section') }}</li>
+                            <li data-tab="#surgery" class="tab-btn">{{ trans('website/welcome.surgery') }} </li>
+                            <li data-tab="#kids" class="tab-btn"> {{ trans('website/welcome.children') }} </li>
+                            <li data-tab="#brain" class="tab-btn">{{ trans('website/welcome.neurology') }} </li>
+                            <li data-tab="#belly" class="tab-btn">{{ trans('website/welcome.internal_medicine') }} </li>
+                            <li data-tab="#eye" class="tab-btn">{{ trans('website/welcome.ophthalmology') }} </li>
+
                         </ul>
                     </div>
                     <!--Column-->
                     <div class="col-lg-8 col-md-12 col-sm-12">
                         <!--Tabs Container-->
                         <div class="tabs-content">
+                            <div class="swiper-wrapper">
 
-                            <!-- Tab -->
-                            <div class="tab" id="tab-urology">
-                                <div class="content">
-                                    <h2>قسم المسالك البولية</h2>
-                                    <div class="title">Department of Neurology</div>
-                                    <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                            ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
-                                            parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                            pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
-                                            pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-                                        <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
-                                            nec, vulputate eget, arcu.</p>
-                                    </div>
-                                    <div class="two-column row clearfix">
-                                        <div class="column col-lg-6 col-md-6 col-sm-12">
-                                            <h3>01 - Neurology Service</h3>
-                                            <div class="column-text">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                                elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                                penatibus
-                                            </div>
+                                <!-- Tab -->
+                                <div class="tab" id="women">
+                                    <div class="content">
+                                        <h2> {{ trans('website/welcome.women_section') }}</h2>
+                                        <h3>
+                                            {{ trans('website/welcome.we') }}
+                                        </h3>
+                                        <div class="two-column row clearfix">
+                                            @foreach (\App\Models\Doctor::where('section_id', 1)->get() as $doctor)
+                                                <div class="column col-lg-6 col-md-6 col-sm-12">
+                                                    <a class="theme-btn btn-style-two"><span
+                                                            class="txt">{{ $doctor->name }}
+                                                        </span></a>
+                                                </div>
+                                            @endforeach
+
                                         </div>
-                                        <div class="column col-lg-6 col-md-6 col-sm-12">
-                                            <h3>02 - Neurology Service</h3>
-                                            <div class="column-text">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                                elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                                penatibus
-                                            </div>
-                                        </div>
+
                                     </div>
-                                    <a href="doctors-detail.html" class="theme-btn btn-style-two"><span
-                                            class="txt">View More</span></a>
                                 </div>
-                            </div>
 
-                            <!-- Tab -->
-                            <div class="tab active-tab" id="tab-department">
-                                <div class="content">
-                                    <h2>Neurology Department</h2>
-                                    <div class="title">Department of Neurology</div>
-                                    <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                            ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
-                                            parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                            pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
-                                            pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-                                        <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
-                                            nec, vulputate eget, arcu.</p>
-                                    </div>
-                                    <div class="two-column row clearfix">
-                                        <div class="column col-lg-6 col-md-6 col-sm-12">
-                                            <h3>01 - Neurology Service</h3>
-                                            <div class="column-text">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                                elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                                penatibus
-                                            </div>
+                                <!-- Tab -->
+                                <div class="tab" id="surgery">
+                                    <div class="content">
+                                        <h2> {{ trans('website/welcome.surgery') }}</h2>
+                                        <h3>
+                                            {{ trans('website/welcome.we') }}
+                                        </h3>
+                                        <div class="two-column row clearfix">
+                                            @foreach (\App\Models\Doctor::where('section_id', 2)->get() as $doctor)
+                                                <div class="column col-lg-6 col-md-6 col-sm-12">
+                                                    <a class="theme-btn btn-style-two"><span
+                                                            class="txt">{{ $doctor->name }}
+                                                        </span></a>
+                                                </div>
+                                            @endforeach
+
                                         </div>
-                                        <div class="column col-lg-6 col-md-6 col-sm-12">
-                                            <h3>02 - Neurology Service</h3>
-                                            <div class="column-text">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                                elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                                penatibus
-                                            </div>
-                                        </div>
+
                                     </div>
-                                    <a href="doctors-detail.html" class="theme-btn btn-style-two"><span
-                                            class="txt">View More</span></a>
                                 </div>
-                            </div>
 
-                            <!-- Tab -->
-                            <div class="tab" id="tab-gastrology">
-                                <div class="content">
-                                    <h2>Gastrology Department</h2>
-                                    <div class="title">Department of Neurology</div>
-                                    <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                            ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
-                                            parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                            pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
-                                            pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-                                        <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
-                                            nec, vulputate eget, arcu.</p>
-                                    </div>
-                                    <div class="two-column row clearfix">
-                                        <div class="column col-lg-6 col-md-6 col-sm-12">
-                                            <h3>01 - Neurology Service</h3>
-                                            <div class="column-text">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                                elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                                penatibus
-                                            </div>
+                                <!-- Tab -->
+                                <div class="tab active-tab" id="kids">
+
+                                    <div class="content">
+                                        <h2> {{ trans('website/welcome.children') }} </h2>
+                                        <h3>
+                                            {{ trans('website/welcome.we') }}
+                                        </h3>
+                                        <div class="two-column row clearfix">
+                                            @foreach (\App\Models\Doctor::where('section_id', 3)->get() as $doctor)
+                                                <div class="column col-lg-6 col-md-6 col-sm-12">
+                                                    <a class="theme-btn btn-style-two"><span
+                                                            class="txt">{{ $doctor->name }}
+                                                        </span></a>
+                                                </div>
+                                            @endforeach
                                         </div>
-                                        <div class="column col-lg-6 col-md-6 col-sm-12">
-                                            <h3>02 - Neurology Service</h3>
-                                            <div class="column-text">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                                elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                                penatibus
-                                            </div>
-                                        </div>
+
                                     </div>
-                                    <a href="doctors-detail.html" class="theme-btn btn-style-two"><span
-                                            class="txt">View More</span></a>
                                 </div>
-                            </div>
 
-                            <!-- Tab -->
-                            <div class="tab" id="tab-cardiology">
-                                <div class="content">
-                                    <h2>Cardiology Department</h2>
-                                    <div class="title">Department of Neurology</div>
-                                    <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                            ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
-                                            parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                            pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
-                                            pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-                                        <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
-                                            nec, vulputate eget, arcu.</p>
-                                    </div>
-                                    <div class="two-column row clearfix">
-                                        <div class="column col-lg-6 col-md-6 col-sm-12">
-                                            <h3>01 - Neurology Service</h3>
-                                            <div class="column-text">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                                elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                                penatibus
-                                            </div>
+                                <!-- Tab -->
+                                <div class="tab" id="brain">
+                                    <div class="content">
+                                        <h2>{{ trans('website/welcome.neurology') }}</h2>
+                                        <h3>
+                                            {{ trans('website/welcome.we') }}
+                                        </h3>
+                                        <div class="two-column row clearfix">
+                                            @foreach (\App\Models\Doctor::where('section_id', 4)->get() as $doctor)
+                                                <div class="column col-lg-6 col-md-6 col-sm-12">
+                                                    <a class="theme-btn btn-style-two"><span
+                                                            class="txt">{{ $doctor->name }}
+                                                        </span></a>
+                                                </div>
+                                            @endforeach
                                         </div>
-                                        <div class="column col-lg-6 col-md-6 col-sm-12">
-                                            <h3>02 - Neurology Service</h3>
-                                            <div class="column-text">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                                elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                                penatibus
-                                            </div>
-                                        </div>
+
                                     </div>
-                                    <a href="doctors-detail.html" class="theme-btn btn-style-two"><span
-                                            class="txt">View More</span></a>
                                 </div>
-                            </div>
 
-                            <!-- Tab -->
-                            <div class="tab" id="tab-eye">
-                                <div class="content">
-                                    <h2>Eye Care Department</h2>
-                                    <div class="title">Department of Neurology</div>
-                                    <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                            ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
-                                            parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                            pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
-                                            pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-                                        <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
-                                            nec, vulputate eget, arcu.</p>
-                                    </div>
-                                    <div class="two-column row clearfix">
-                                        <div class="column col-lg-6 col-md-6 col-sm-12">
-                                            <h3>01 - Neurology Service</h3>
-                                            <div class="column-text">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                                elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                                penatibus
-                                            </div>
+                                <!-- Tab -->
+                                <div class="tab" id="belly">
+                                    <div class="content">
+                                        <h2> {{ trans('website/welcome.internal_medicine') }}</h2>
+                                        <h3>
+                                            {{ trans('website/welcome.we') }}
+                                        </h3>
+                                        <div class="two-column row clearfix">
+                                            @foreach (\App\Models\Doctor::where('section_id', 5)->get() as $doctor)
+                                                <div class="column col-lg-6 col-md-6 col-sm-12">
+                                                    <a class="theme-btn btn-style-two"><span
+                                                            class="txt">{{ $doctor->name }}
+                                                        </span></a>
+                                                </div>
+                                            @endforeach
                                         </div>
-                                        <div class="column col-lg-6 col-md-6 col-sm-12">
-                                            <h3>02 - Neurology Service</h3>
-                                            <div class="column-text">Lorem ipsum dolor sit amet, consectetuer adipiscing
-                                                elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                                                penatibus
-                                            </div>
-                                        </div>
+
                                     </div>
-                                    <a href="doctors-detail.html" class="theme-btn btn-style-two"><span
-                                            class="txt">View More</span></a>
+                                </div>
+
+                                <!-- Tab -->
+                                <div class="tab" id="eye">
+                                    <div class="content">
+                                        <h2>{{ trans('website/welcome.ophthalmology') }}</h2>
+                                        <h3>
+                                            {{ trans('website/welcome.we') }}
+                                        </h3>
+                                        <div class="two-column row clearfix">
+                                            @foreach (\App\Models\Doctor::where('section_id', 6)->get() as $doctor)
+                                                <div class="column col-lg-6 col-md-6 col-sm-12">
+                                                    <a class="theme-btn btn-style-two"><span
+                                                            class="txt">{{ $doctor->name }}
+                                                        </span></a>
+                                                </div>
+                                            @endforeach
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
 
@@ -427,123 +370,11 @@
     <section class="team-section">
         <div class="auto-container">
 
-            <!-- Sec Title -->
-            <div class="sec-title centered">
-                <h2>الأخصائيون الطبيون</h2>
-                <div class="separator"></div>
-            </div>
-
-            <div class="row clearfix">
-
-                <!-- Team Block -->
-                <div class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="image">
-                            <img src="images/resource/team-1.jpg" alt="" />
-                            <div class="overlay-box">
-                                <ul class="social-icons">
-                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-google"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-skype"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-                                </ul>
-                                <a href="#" class="appointment">Make Appointment</a>
-                            </div>
-                        </div>
-                        <div class="lower-content">
-                            <h3><a href="#">الدكتورة أندريا جونيا</a></h3>
-                            <div class="designation">أخصائي السرطان</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team Block -->
-                <div class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="inner-box wow fadeInLeft" data-wow-delay="250ms" data-wow-duration="1500ms">
-                        <div class="image">
-                            <img src="images/resource/team-2.jpg" alt="" />
-                            <div class="overlay-box">
-                                <ul class="social-icons">
-                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-google"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-skype"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-                                </ul>
-                                <a href="#" class="appointment">Make Appointment</a>
-                            </div>
-                        </div>
-                        <div class="lower-content">
-                            <h3><a href="#">د. روبت سميث</a></h3>
-                            <div class="designation">جراح قلب</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team Block -->
-                <div class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="inner-box wow fadeInLeft" data-wow-delay="500ms" data-wow-duration="1500ms">
-                        <div class="image">
-                            <img src="images/resource/team-3.jpg" alt="" />
-                            <div class="overlay-box">
-                                <ul class="social-icons">
-                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-google"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-skype"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-                                </ul>
-                                <a href="#" class="appointment">Make Appointment</a>
-                            </div>
-                        </div>
-                        <div class="lower-content">
-                            <h3><a href="#">دكتور ويل لورا</a></h3>
-                            <div class="designation">طبيب الأسرة</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Team Block -->
-                <div class="team-block col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                    <div class="inner-box wow fadeInLeft" data-wow-delay="750ms" data-wow-duration="1500ms">
-                        <div class="image">
-                            <img src="images/resource/team-4.jpg" alt="" />
-                            <div class="overlay-box">
-                                <ul class="social-icons">
-                                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-google"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-skype"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
-                                </ul>
-                                <a href="#" class="appointment">Make Appointment</a>
-                            </div>
-                        </div>
-                        <div class="lower-content">
-                            <h3><a href="#">الدكتور أليكس فورغسين</a></h3>
-                            <div class="designation">أخصائي تقويم العظام</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
         </div>
     </section>
     <!-- End Team Section -->
 
-    <!-- Video Section -->
-    <section class="video-section" style="background-image:url(images/background/5.jpg)">
-        <div class="auto-container">
-            <div class="content">
-                <a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-box"><span
-                        class="flaticon-play-button"><i class="ripple"></i></span></a>
-                <div class="text">نحن نهتم بصحتك<h2>نحن نهتم بك</h2>
-                </div>
-            </div>
-    </section>
-    <!-- End Video Section -->
+
 
     <!-- Appointment Section Two -->
     <section class="appointment-section-two">
@@ -583,128 +414,7 @@
     <!-- Testimonial Section Two -->
     <section class="testimonial-section-two">
         <div class="auto-container">
-            <!-- Sec Title -->
-            <div class="sec-title centered">
-                <h2>ماذا يقول المرضى</h2>
-                <div class="separator"></div>
-            </div>
-            <div class="testimonial-carousel owl-carousel owl-theme">
 
-                <!-- Tesimonial Block Two -->
-                <div class="testimonial-block-two">
-                    <div class="inner-box">
-                        <div class="image">
-                            <img src="images/resource/author-4.jpg" alt="" />
-                        </div>
-                        <div class="text">
-                            يعد المركز الطبي مكانًا رائعًا للحصول على جميع احتياجاتك الطبية. دخلت
-                            لإجراء فحص ولم تنتظر أكثر من 5 دقائق قبل رؤيتي. يمكنني أن أتصور
-                            نوع الخدمة التي تحصل عليها في حالة المشكلات الأكثر خطورة. شكرًا!
-                        </div>
-                        <div class="lower-box">
-                            <div class="clearfix">
-
-                                <div class="pull-left">
-                                    <div class="quote-icon flaticon-quote"></div>
-                                </div>
-                                <div class="pull-right">
-                                    <div class="author-info">
-                                        <h3>ماكس وينشستر</h3>
-                                        <div class="author">مريض الكلى</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tesimonial Block Two -->
-                <div class="testimonial-block-two">
-                    <div class="inner-box">
-                        <div class="image">
-                            <img src="images/resource/author-5.jpg" alt="" />
-                        </div>
-                        <div class="text">
-                            يعد المركز الطبي مكانًا رائعًا للحصول على جميع احتياجاتك الطبية. دخلت
-                            لإجراء فحص ولم تنتظر أكثر من 5 دقائق قبل رؤيتي. يمكنني أن أتصور
-                            نوع الخدمة التي تحصل عليها في حالة المشكلات الأكثر خطورة. شكرًا!
-                        </div>
-                        <div class="lower-box">
-                            <div class="clearfix">
-
-                                <div class="pull-left">
-                                    <div class="quote-icon flaticon-quote"></div>
-                                </div>
-                                <div class="pull-right">
-                                    <div class="author-info">
-                                        <h3>جاك مونيتا</h3>
-                                        <div class="author">مريض الكلى</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tesimonial Block Two -->
-                <div class="testimonial-block-two">
-                    <div class="inner-box">
-                        <div class="image">
-                            <img src="images/resource/author-4.jpg" alt="" />
-                        </div>
-                        <div class="text">Medical Centre is a great place to get all of your medical needs. I came in
-                            for a check up and did not wait more than 5 minutes before I was seen. I can only imagine
-                            the type of service you get for more serious issues. Thanks!
-                        </div>
-                        <div class="lower-box">
-                            <div class="clearfix">
-
-                                <div class="pull-left">
-                                    <div class="quote-icon flaticon-quote"></div>
-                                </div>
-                                <div class="pull-right">
-                                    <div class="author-info">
-                                        <h3>Max Winchester</h3>
-                                        <div class="author">Kidny Patient</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tesimonial Block Two -->
-                <div class="testimonial-block-two">
-                    <div class="inner-box">
-                        <div class="image">
-                            <img src="images/resource/author-5.jpg" alt="" />
-                        </div>
-                        <div class="text">Medical Centre is a great place to get all of your medical needs. I came in
-                            for a check up and did not wait more than 5 minutes before I was seen. I can only imagine
-                            the type of service you get for more serious issues. Thanks!
-                        </div>
-                        <div class="lower-box">
-                            <div class="clearfix">
-
-                                <div class="pull-left">
-                                    <div class="quote-icon flaticon-quote"></div>
-                                </div>
-                                <div class="pull-right">
-                                    <div class="author-info">
-                                        <h3>Jack Monita</h3>
-                                        <div class="author">Kidny Patient</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </section>
     <!-- End Testimonial Section Two -->
@@ -725,7 +435,7 @@
                                 <div class="count-outer count-box">
                                     <span class="count-text" data-speed="2500" data-stop="2350">0</span>
                                 </div>
-                                <h4 class="counter-title">مرضى راضون</h4>
+                                <h4 class="counter-title"> {{ trans('website/welcome.statisfied_patients') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -738,7 +448,7 @@
                                 <div class="count-outer count-box alternate">
                                     +<span class="count-text" data-speed="3000" data-stop="350">0</span>
                                 </div>
-                                <h4 class="counter-title">فريق الطبيب</h4>
+                                <h4 class="counter-title"> {{ trans('website/welcome.doctor_team') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -751,7 +461,7 @@
                                 <div class="count-outer count-box">
                                     <span class="count-text" data-speed="3000" data-stop="2150">0</span>
                                 </div>
-                                <h4 class="counter-title">مهمة النجاح</h4>
+                                <h4 class="counter-title">{{ trans('website/welcome.succesful_mission') }} </h4>
                             </div>
                         </div>
                     </div>
@@ -764,7 +474,7 @@
                                 <div class="count-outer count-box">
                                     +<span class="count-text" data-speed="2500" data-stop="225">0</span>
                                 </div>
-                                <h4 class="counter-title">جراحات ناجحة</h4>
+                                <h4 class="counter-title"> {{ trans('website/welcome.succesful_surgeries') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -785,39 +495,28 @@
                     <!-- Doctor Block -->
                     <div class="doctor-block col-lg-4 col-md-6 col-sm-12">
                         <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <h3>ساعات العمل</h3>
+                            <h3>{{ trans('website/welcome.work_hours') }}</h3>
                             <ul class="doctor-time-list">
-                                <li>من الإثنين إلى الجمعة<span>8:00am–7:00pm</span></li>
-                                <li>السبت <span>9:00am–5:00pm</span></li>
-                                <li>الأحد<span>9:00am–3:00pm</span></li>
+                                <li> {{ trans('website/welcome.from_days') }}<span>8:00am–7:00pm</span></li>
+                                <li> {{ trans('website/welcome.saturday') }}<span>9:00am–5:00pm</span></li>
+                                <li>{{ trans('website/welcome.sunday') }}<span>9:00am–3:00pm</span></li>
                             </ul>
-                            <h4>حالات الطوارئ</h4>
-                            <div class="phone">اتصل بنا ! <strong>+898 68679 575 09</strong></div>
+                            <h4>{{ trans('website/welcome.emergency_cases') }} </h4>
+                            <div class="phone"> {{ trans('website/welcome.call_us') }} <strong>+898 68679 575 09</strong>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Doctor Block -->
                     <div class="doctor-block col-lg-4 col-md-6 col-sm-12">
                         <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <h3>جدول الأطباء</h3>
+                            <h3> {{ trans('website/welcome.doctors_schedule') }}</h3>
                             <div class="text">
-                                ما يلي هو للإرشاد فقط لمساعدتك في التخطيط لموعدك
-                                طبيب أو ممرضة مفضلة. لا تضمن توافر الأطباء أو الممرضات
-                                قد يكون في بعض الأحيان يحضر إلى واجبات أخرى
+                                {{ trans('website/welcome.following') }}
                             </div>
-                            <a href="#" class="detail">تفاصيل اكثر</a>
-                        </div>
-                    </div>
 
-                    <!-- Doctor Block -->
-                    <div class="doctor-block col-lg-4 col-md-6 col-sm-12">
-                        <div class="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <h3>العناية الصحية الاولية</h3>
-                            <div class="text">عندما تعلم أنك تستخدم أفضل مواهبك من أجل شيء تحبه ، فأنت
-                                لا تستطيع ذلك. التواصل الفعال هو الأساس لبناء علامات تجارية صلبة مثل
-                                علاقة السفن بالبناء مع عملائنا
-                            </div>
-                            <a href="#" class="detail">اتصل الآن</a>
+                            <a href="{{ route('ShowDoctorTable') }}"
+                                class="detail">{{ trans('website/welcome.more_details') }} </a>
                         </div>
                     </div>
 
@@ -827,116 +526,11 @@
     </section>
     <!-- End Doctor Info Section -->
 
-    <!-- News Section Two -->
-    <section class="news-section-two">
-        <div class="auto-container">
-            <!-- Sec Title -->
-            <div class="sec-title centered">
-                <h2>آخر الأخبار والمقالات</h2>
-                <div class="separator style-three"></div>
-            </div>
-            <div class="row clearfix">
-
-                <!-- News Block Two -->
-                <div class="news-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="image">
-                            <a href="blog-detail.html"><img src="images/resource/news-4.jpg" alt="" /></a>
-                        </div>
-                        <div class="lower-content">
-                            <div class="content">
-                                <ul class="post-info">
-                                    <li><span class="icon flaticon-chat-comment-oval-speech-bubble-with-text-lines"></span>
-                                        02
-                                    </li>
-                                    <li><span class="icon flaticon-heart"></span> 126</li>
-                                </ul>
-                                <ul class="post-meta">
-                                    <li>21 يونيو 2018 الساعة 8:12 مساءً</li>
-                                    <li>Post بواسطة: Admin</li>
-                                </ul>
-                                <h3><a href="blog-detail.html">خدمات التشخيص لانتقاء نتائج فعالة بشكل صحيح</a></h3>
-                                <div class="text">
-                                    هناك الكثير من النساء اللواتي يجهلن المخاطر العديدة
-                                    المرتبطة بصحتهم وتجاهل في النهاية
-                                </div>
-                                <a href="blog-detail.html" class="theme-btn btn-style-five"><span class="txt">اقرا
-                                        المزيد</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- News Block Two -->
-                <div class="news-block-two col-lg-6 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <div class="image">
-                            <a href="blog-detail.html"><img src="images/resource/news-5.jpg" alt="" /></a>
-                        </div>
-                        <div class="lower-content">
-                            <div class="content">
-                                <ul class="post-info">
-                                    <li><span class="icon flaticon-chat-comment-oval-speech-bubble-with-text-lines"></span>
-                                        02
-                                    </li>
-                                    <li><span class="icon flaticon-heart"></span> 126</li>
-                                </ul>
-                                <ul class="post-meta">
-                                    <li>21 يونيو 2018 الساعة 8:12 مساءً</li>
-                                    <li>Post بواسطة: Admin</li>
-                                </ul>
-                                <h3><a href="blog-detail.html">خدمات التشخيص لانتقاء نتائج فعالة بشكل صحيح</a></h3>
-                                <div class="text">
-                                    هناك الكثير من النساء اللواتي يجهلن المخاطر العديدة
-                                    المرتبطة بصحتهم وتجاهل في النهاية
-                                </div>
-                                <a href="blog-detail.html" class="theme-btn btn-style-five"><span class="txt">اقرا
-                                        المزيد</span></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-    </section>
 
     <!--Clients Section-->
     <section class="clients-section">
         <div class="outer-container">
 
-            <div class="sponsors-outer">
-                <!--Sponsors Carousel-->
-                <ul class="sponsors-carousel owl-carousel owl-theme">
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/clients/1.png" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/clients/2.png" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/clients/3.png" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/clients/4.png" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/clients/5.png" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/clients/1.png" alt=""></a>
-                        </figure>
-                    </li>
-                    <li class="slide-item">
-                        <figure class="image-box"><a href="#"><img src="images/clients/2.png" alt=""></a>
-                        </figure>
-                    </li>
-                </ul>
-            </div>
 
         </div>
     </section>

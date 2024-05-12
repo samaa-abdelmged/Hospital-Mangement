@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PaymentRequest;
 use App\Interfaces\Finance\PaymentRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class PaymentAccountController extends Controller
         return $this->Payment->create();
     }
 
-    public function store(Request $request)
+    public function store(PaymentRequest $request)
     {
         return $this->Payment->store($request);
     }
@@ -40,7 +41,7 @@ class PaymentAccountController extends Controller
         return $this->Payment->edit($id);
     }
 
-    public function update(Request $request)
+    public function update(PaymentRequest $request)
     {
         return $this->Payment->update($request);
     }

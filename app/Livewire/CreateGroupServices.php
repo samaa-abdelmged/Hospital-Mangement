@@ -17,6 +17,22 @@ class CreateGroupServices extends Component
     public $discount_value = 0, $taxes = 17, $name_group, $notes, $total, $Total_after_discount, $Total_with_tax;
     public $ServiceSaved = false, $ServiceUpdated = false, $updateMode = false;
 
+    protected $rules = [
+
+        'name_group' => 'required',
+        'total' => 'required',
+        'Total_with_tax' => 'required',
+
+    ];
+
+    protected $messages = [
+
+        'name_group.required' => 'type the group name',
+        'total.required' => 'select a service',
+        'Total_with_tax.required' => 'select a service',
+
+    ];
+
     public function render()
     {
         return view('livewire.GroupServices.create-group-services', [
@@ -173,37 +189,39 @@ class CreateGroupServices extends Component
 
     public function save_group()
     {
-        $Groups = new Group();
+        if ($this->validate()) {
 
-        //الاجمالي قبل الخصم
-        $Groups->Total_before_discount = $this->total;
-        // قيمة الخصم
-        $Groups->discount_value = $this->discount_value;
-        // الاجمالي بعد الخصم
-        $Groups->Total_after_discount = $this->total - $this->discount_value;
-        //  نسبة الضريبة
-        $Groups->tax_rate = $this->taxes;
-        // الاجمالي + الضريبة
-        $Groups->Total_with_tax = $this->Total_with_tax;
-        $Groups->save();
+            $Groups = new Group();
 
-        // حفظ الترجمة
-        $Groups->name = $this->name_group;
-        $Groups->notes = $this->notes;
-        $Groups->save();
+            //الاجمالي قبل الخصم
+            $Groups->Total_before_discount = $this->total;
+            // قيمة الخصم
+            $Groups->discount_value = $this->discount_value;
+            // الاجمالي بعد الخصم
+            $Groups->Total_after_discount = $this->total - $this->discount_value;
+            //  نسبة الضريبة
+            $Groups->tax_rate = $this->taxes;
+            // الاجمالي + الضريبة
+            $Groups->Total_with_tax = $this->Total_with_tax;
+            $Groups->save();
 
-        // حفظ العلاقة
-        foreach ($this->GroupsItems as $GroupsItem) {
-            $services_group = new ServiceGroup();
-            $services_group->quantity = $GroupsItem['quantity'];
-            $services_group->Group_id = Group::latest('id')->first()->id;
-            $services_group->Service_id = $GroupsItem['service_id'];
-            $services_group->save();
+            // حفظ الترجمة
+            $Groups->name = $this->name_group;
+            $Groups->notes = $this->notes;
+            $Groups->save();
 
+            // حفظ العلاقة
+            foreach ($this->GroupsItems as $GroupsItem) {
+                $services_group = new ServiceGroup();
+                $services_group->quantity = $GroupsItem['quantity'];
+                $services_group->Group_id = Group::latest('id')->first()->id;
+                $services_group->Service_id = $GroupsItem['service_id'];
+                $services_group->save();
+
+            }
+
+            $this->reset('GroupsItems', 'name_group', 'notes', 'Total_after_discount', 'discount_value', 'taxes', 'total', 'Total_with_tax');
         }
-
-        $this->reset('GroupsItems', 'name_group', 'notes', 'Total_after_discount', 'discount_value', 'taxes', 'total', 'Total_with_tax');
-
     }
 
     public function update_group()

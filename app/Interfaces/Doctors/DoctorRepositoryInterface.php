@@ -28,4 +28,6 @@ interface DoctorRepositoryInterface
     // update_status
     public function update_status($request);
 
+    public function DoctorTable($id);
+
 }

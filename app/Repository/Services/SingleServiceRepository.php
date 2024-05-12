@@ -5,7 +5,6 @@ namespace App\Repository\Services;
 use App\Models\Service;
 
 class SingleServiceRepository implements \App\Interfaces\Services\SingleServiceRepositoryInterface
-
 {
 
     public function index()
@@ -16,45 +15,40 @@ class SingleServiceRepository implements \App\Interfaces\Services\SingleServiceR
 
     public function store($request)
     {
-        try {
-            $SingleService = new Service();
-            $SingleService->price = $request->price;
-            $SingleService->description = $request->description;
-            $SingleService->status = 1;
-            $SingleService->save();
 
-            // store trans
-            $SingleService->name = $request->name;
-            $SingleService->save();
+        $SingleService = new Service();
+        $SingleService->price = $request->price;
+        $SingleService->description = $request->description;
+        $SingleService->status = 1;
+        $SingleService->save();
 
-            session()->flash('add');
-            return redirect()->route('Service.index');
+        // store trans
+        $SingleService->name = $request->name;
+        $SingleService->save();
 
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        session()->flash('add');
+        return redirect()->route('Service.index');
+
+
     }
 
     public function update($request)
     {
-        try {
 
-            $SingleService = Service::findOrFail($request->id);
-            $SingleService->price = $request->price;
-            $SingleService->description = $request->description;
-            $SingleService->status = $request->status;
-            $SingleService->save();
 
-            // store trans
-            $SingleService->name = $request->name;
-            $SingleService->save();
+        $SingleService = Service::findOrFail($request->id);
+        $SingleService->price = $request->price;
+        $SingleService->description = $request->description;
+        $SingleService->status = $request->status;
+        $SingleService->save();
 
-            session()->flash('edit');
-            return redirect()->route('Service.index');
+        // store trans
+        $SingleService->name = $request->name;
+        $SingleService->save();
 
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        session()->flash('edit');
+        return redirect()->route('Service.index');
+
     }
 
     public function destroy($request)

@@ -18,6 +18,12 @@ class RayController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'description' => 'required',
+            'message' => [
+                'required' => trans('dashboard\validation.required'),
+            ],
+        ]);
         return $this->ray->store($request);
     }
 

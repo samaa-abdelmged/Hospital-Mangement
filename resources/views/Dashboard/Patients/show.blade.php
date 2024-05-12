@@ -2,15 +2,16 @@
 @section('css')
 @endsection
 @section('title')
-    معلومات المريض
+    {{ trans('dashboard/patient.patient_information') }}
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">المرضي</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ معلومات
-                    المريض</span>
+                <h4 class="content-title mb-0 my-auto"> {{ trans('dashboard/patient.patients') }}</h4><span
+                    class="text-muted mt-1 tx-13 mr-2 mb-0">/ {{ trans('dashboard/patient.patient_information') }}
+                </span>
             </div>
         </div>
     </div>
@@ -30,20 +31,22 @@
                                         <!-- Tabs -->
                                         <ul class="nav panel-tabs main-nav-line">
                                             <li class="nav-item"><a href="#tab1" class="nav-link active"
-                                                    data-toggle="tab">معلومات المريض</a></li>
-                                            <li class="nav-item"><a href="#tab2" class="nav-link"
-                                                    data-toggle="tab">الفواتير</a>
+                                                    data-toggle="tab">
+                                                    {{ trans('dashboard/patient.patient_information') }}</a></li>
+                                            <li class="nav-item"><a href="#tab2" class="nav-link" data-toggle="tab">
+                                                    {{ trans('dashboard/patient.invoices') }}</a>
                                             </li>
-                                            <li class="nav-item"><a href="#tab3" class="nav-link"
-                                                    data-toggle="tab">المدفوعات</a>
+                                            <li class="nav-item"><a href="#tab3" class="nav-link" data-toggle="tab">
+                                                    {{ trans('dashboard/patient.payments') }}</a>
                                             </li>
-                                            <li class="nav-item"><a href="#tab4" class="nav-link" data-toggle="tab">كشف
-                                                    حساب</a></li>
-                                            <li class="nav-item"><a href="#tab5" class="nav-link"
-                                                    data-toggle="tab">الاشعه</a>
+                                            <li class="nav-item"><a href="#tab4" class="nav-link" data-toggle="tab">
+                                                    {{ trans('dashboard/patient.account_statement') }}
+                                                </a></li>
+                                            <li class="nav-item"><a href="#tab5" class="nav-link" data-toggle="tab">
+                                                    {{ trans('dashboard/patient.rays') }}</a>
                                             </li>
-                                            <li class="nav-item"><a href="#tab6" class="nav-link"
-                                                    data-toggle="tab">المختبر</a>
+                                            <li class="nav-item"><a href="#tab6" class="nav-link" data-toggle="tab">
+                                                    {{ trans('dashboard/patient.labs') }}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -61,12 +64,12 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>اسم المريض</th>
-                                                            <th>رقم الهاتف</th>
-                                                            <th>البريد الالكتورني</th>
-                                                            <th>تاريخ الميلاد</th>
-                                                            <th>النوع</th>
-                                                            <th>فصيلة الدم</th>
+                                                            <th> {{ trans('dashboard/patient.patient_name') }}</th>
+                                                            <th> {{ trans('dashboard/patient.phone_number') }}</th>
+                                                            <th> {{ trans('dashboard/patient.email') }} </th>
+                                                            <th> {{ trans('dashboard/patient.birth_date') }} </th>
+                                                            <th> {{ trans('dashboard/patient.gunder') }}</th>
+                                                            <th> {{ trans('dashboard/patient.blood_type') }}</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -76,7 +79,8 @@
                                                             <td>{{ $Patient->Phone }}</td>
                                                             <td>{{ $Patient->email }}</td>
                                                             <td>{{ $Patient->Date_Birth }}</td>
-                                                            <td>{{ $Patient->Gender == 1 ? '`ذكر' : 'انثي' }}</td>
+                                                            <td>{{ $Patient->Gender == 1 ? trans('dashboard/patient.male') : trans('dashboard/patient.female') }}
+                                                            </td>
                                                             <td>{{ $Patient->Blood_Group }}</td>
                                                         </tr>
                                                     </tbody>
@@ -97,10 +101,10 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>اسم الخدمه</th>
-                                                            <th>تاريخ الفاتوره</th>
-                                                            <th>الاجمالي مع الضريبه</th>
-                                                            <th>نوع الفاتوره</th>
+                                                            <th> {{ trans('dashboard/patient.service_name') }}</th>
+                                                            <th> {{ trans('dashboard/patient.invoice_date') }} </th>
+                                                            <th> {{ trans('dashboard/patient.total_with_tax') }}</th>
+                                                            <th> {{ trans('dashboard/patient.invoice_type') }}</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -111,13 +115,14 @@
                                                                 </td>
                                                                 <td>{{ $invoice->invoice_date }}</td>
                                                                 <td>{{ $invoice->total_with_tax }}</td>
-                                                                <td>{{ $invoice->type == 1 ? 'نقدي' : 'اجل' }}</td>
+                                                                <td>{{ $invoice->type == 1 ? trans('dashboard/patient.cash') : trans('dashboard/patient.postponed') }}
+                                                                </td>
                                                             </tr>
                                                             <br>
                                                         @endforeach
                                                         <tr>
                                                             <th colspan="3" scope="row" class="alert alert-success">
-                                                                الاجمالي
+                                                                {{ trans('dashboard/patient.total') }}
                                                             </th>
                                                             <td class="alert alert-primary">
                                                                 {{ number_format($invoices->sum('total_with_tax'), 2) }}
@@ -140,9 +145,9 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>تاريخ الاضافه</th>
-                                                            <th>المبلغ</th>
-                                                            <th>البيان</th>
+                                                            <th> {{ trans('dashboard/patient.addition_date') }}</th>
+                                                            <th> {{ trans('dashboard/patient.amount') }}</th>
+                                                            <th> {{ trans('dashboard/patient.statement') }}</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -156,7 +161,8 @@
                                                             <br>
                                                         @endforeach
                                                         <tr>
-                                                            <th scope="row" class="alert alert-success">الاجمالي
+                                                            <th scope="row" class="alert alert-success">
+                                                                {{ trans('dashboard/patient.total') }}
                                                             </th>
                                                             <td colspan="4" class="alert alert-primary">
                                                                 {{ number_format($receipt_accounts->sum('amount'), 2) }}
@@ -177,11 +183,11 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>تاريخ الاضافه</th>
-                                                            <th>الوصف</th>
-                                                            <th>دائن</th>
-                                                            <th>مدين</th>
-                                                            <th>الرصيد النهائي</th>
+                                                            <th> {{ trans('dashboard/patient.addition_date') }}</th>
+                                                            <th> {{ trans('dashboard/patient.description') }}</th>
+                                                            <th> {{ trans('dashboard/patient.credit') }}</th>
+                                                            <th> {{ trans('dashboard/patient.debit') }}</th>
+                                                            <th> {{ trans('dashboard/patient.final_balance') }}</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -219,10 +225,10 @@
 
                                                             <td class="alert alert-danger">
                                                                 <span class="text-danger"> {{ $Debit - $credit }}
-                                                                    {{ $Debit - $credit > 0 ? 'مدين' : 'دائن' }}</span>
+                                                                    {{ $Debit - $credit > 0 ? trans('dashboard/patient.debit') : trans('dashboard/patient.credit') }}</span>
                                                             </td>
                                                         </tr>
-                                                    </tbody>
+                                                    </tbody>s
                                                 </table>
 
                                             </div>
@@ -235,23 +241,8 @@
 
 
                                         <div class="tab-pane" id="tab5">
-                                            <p>praesentium voluptatum deleniti atque corrquas molestias excepturi sint
-                                                occaecati cupiditate non provident,</p>
-                                            <p class="mb-0">similique sunt in culpa qui officia deserunt mollitia animi,
-                                                id est laborum et dolorum fuga. Et harum quidem rerum facilis est et
-                                                expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi
-                                                optio cumque nihil impedit quo minus id quod maxime placeat facere
-                                                possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
                                         </div>
-                                        <div class="tab-pane" id="tab6">
-                                            <p>praesentium et quas molestias excepturi sint occaecati cupiditate non
-                                                provident,</p>
-                                            <p class="mb-0">similique sunt in culpa qui officia deserunt mollitia animi,
-                                                id est laborum et dolorum fuga. Et harum quidem rerum facilis est et
-                                                expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi
-                                                optio cumque nihil impedit quo minus id quod maxime placeat facere
-                                                possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>

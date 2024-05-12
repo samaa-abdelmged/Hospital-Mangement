@@ -19,6 +19,8 @@ return new class extends Migration {
             $table->string('phone');
             $table->integer('number_of_statements')->default(5);
             $table->boolean('status')->default(1);
+            $table->json('day_start')->nullable();
+            $table->json('day_end')->nullable();
             $table->timestamps();
         });
     }

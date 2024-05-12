@@ -10,8 +10,8 @@ class Group extends Model
 {
     use Translatable;
     use HasFactory;
-    public $translatedAttributes = ['name', 'notes'];
-    public $fillable = ['Total_before_discount', 'discount_value', 'Total_after_discount', 'tax_rate', 'Total_with_tax'];
+    public $translatedAttributes = ['name', 'notes', 'Group_id'];
+    public $fillable = ['Total_before_discount', 'discount_value', 'Total_after_discount', 'tax_rate', 'Total_with_tax',];
     //public $guarded=[];
 
     public function service_group()

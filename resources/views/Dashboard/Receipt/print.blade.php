@@ -1,6 +1,7 @@
 @extends('Dashboard.layouts.master')
 @section('title')
-    سند قبض
+    {{ trans('Dashboard/accounts.print_receipt') }}
+
 @stop
 @section('css')
     <style>
@@ -16,8 +17,10 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">سند قبض</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ طباعه
-                    سند</span>
+                <h4 class="content-title mb-0 my-auto">{{ trans('Dashboard/accounts.print_receipt') }}
+                </h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                    {{ trans('Dashboard/accounts.print') }}
+                </span>
             </div>
         </div>
     </div>
@@ -31,20 +34,20 @@
                 <div class="card card-invoice">
                     <div class="card-body">
                         <div class="invoice-header">
-                            <h1 class="invoice-title">سند قبض</h1>
+                            <h1 class="invoice-title">{{ trans('Dashboard/accounts.receipt_document') }}
+                            </h1>
                             <div class="billed-from">
-                                <h6>برنامج ادراه المستشفي </h6>
-                                <p>201 المهندسين<br>
-                                    Tel No: 011111111<br>
-                                    Email: Hospital@gmail.com</p>
+
                             </div><!-- billed-from -->
                         </div><!-- invoice-header -->
                         <div class="row mg-t-20">
                             <div class="col-md">
-                                <label class="tx-gray-600">معلومات السند</label>
-                                <p class="invoice-info-row"><span>تاريخ الاصدار</span> <span>{{ $receipt->date }}</span>
+                                <label class="tx-gray-600"> {{ trans('Dashboard/accounts.document_informations') }}
+                                </label>
+                                <p class="invoice-info-row"><span>{{ trans('Dashboard/accounts.release_date') }} </span>
+                                    <span>{{ $receipt->date }}</span>
                                 </p>
-                                <p class="invoice-info-row "><span>اسم المريض</span>
+                                <p class="invoice-info-row "><span>{{ trans('Dashboard/accounts.patient_name') }} </span>
                                     <span>{{ $receipt->patients->name }}</span>
                                 </p>
                             </div>
@@ -54,8 +57,8 @@
                                 <thead>
                                     <tr>
                                         <th class="wd-20p">#</th>
-                                        <th class="wd-40p">ملاحظات</th>
-                                        <th class="tx-center">المبلغ</th>
+                                        <th class="wd-40p">{{ trans('Dashboard/accounts.notes') }}</th>
+                                        <th class="tx-center">{{ trans('Dashboard/accounts.amount') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -70,7 +73,7 @@
                         <hr class="mg-b-40">
                         <a href="#" class="btn btn-danger float-left mt-3 mr-2" id="print_Button"
                             onclick="printDiv()">
-                            <i class="mdi mdi-printer ml-1"></i>طباعه
+                            <i class="mdi mdi-printer ml-1"></i>{{ trans('Dashboard/accounts.print') }}
                         </a>
                     </div>
                 </div>

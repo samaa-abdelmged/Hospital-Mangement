@@ -64,8 +64,13 @@
                                     {{ trans('dashboard/doctors.name') }}</label>
                             </div>
                             <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                <input class="form-control" name="name" value="{{ $doctor->name }}" type="text">
+                                <input class="form-control" name="name" id="name" value="{{ $doctor->name }}"
+                                    type="text">
+                                @error('name')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                             </div>
+
                         </div>
 
                         <div class="row row-xs align-items-center mg-b-20">
@@ -74,8 +79,13 @@
                                     {{ trans('dashboard/doctors.email') }}</label>
                             </div>
                             <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                <input class="form-control" value="{{ $doctor->email }}" name="email" type="email">
+                                <input class="form-control" value="{{ $doctor->email }}" name="email" id="email"
+                                    type="email">
+                                @error('email')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                             </div>
+
                         </div>
 
 
@@ -85,8 +95,12 @@
                                     {{ trans('dashboard/doctors.phone') }}</label>
                             </div>
                             <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                <input class="form-control" value="{{ $doctor->phone }}" name="phone" type="tel">
+                                <input class="form-control" value="{{ $doctor->phone }}" name="phone" id="phone"
+                                    type="tel">
                                 <input class="form-control" value="{{ $doctor->id }}" name="id" type="hidden">
+                                @error('phone')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 
@@ -113,20 +127,76 @@
                                 <label for="exampleInputEmail1">
                                     {{ trans('dashboard/doctors.appointments') }}</label>
                             </div>
-
                             <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                <select multiple="multiple" class="testselect2" name="appointments[]">
-                                    @foreach ($doctor->doctorappointments as $appointmentDOC)
-                                        <option value="{{ $appointmentDOC->id }}" selected>{{ $appointmentDOC->name }}
-                                        </option>
-                                    @endforeach
 
-                                    @foreach ($appointments as $appointment)
-                                        <option value="{{ $appointment->id }}">{{ $appointment->name }}</option>
-                                    @endforeach
-                                </select>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>الايام</th>
+                                            <th>من الساعة</th>
+                                            <th>الي الساعة</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <td>السبت</td>
+                                        <td><input class="form-control" value={{ $doctor->day_start['1'] }}
+                                                name="day_start_1" type="time"></td>
+
+                                        <td><input class="form-control" value={{ $doctor->day_end['1'] }}
+                                                name="day_end_1" type="time"></td>
+                                    </tbody>
+                                    <tbody>
+                                        <td>الاحد</td>
+                                        <td><input class="form-control" value={{ $doctor->day_start['2'] }}
+                                                name="day_start_2" type="time"></td>
+
+                                        <td><input class="form-control" value={{ $doctor->day_end['2'] }}
+                                                name="day_end_2" type="time"></td>
+
+                                    </tbody>
+                                    <tbody>
+                                        <td>الاثنين</td>
+                                        <td><input class="form-control" value={{ $doctor->day_start['3'] }}
+                                                name="day_start_3" type="time"></td>
+
+                                        <td><input class="form-control" value={{ $doctor->day_end['3'] }}
+                                                name="day_end_3" type="time"></td>
+                                    </tbody>
+                                    <tbody>
+                                        <td>الثلاثاء</td>
+                                        <td><input class="form-control" value={{ $doctor->day_start['4'] }}
+                                                name="day_start_4" type="time"></td>
+
+                                        <td><input class="form-control" value={{ $doctor->day_end['4'] }}
+                                                name="day_end_4" type="time"></td>
+                                    </tbody>
+                                    <tbody>
+                                        <td>الاربعاء</td>
+                                        <td><input class="form-control" value={{ $doctor->day_start['5'] }}
+                                                name="day_start_5" type="time"></td>
+
+                                        <td><input class="form-control" value={{ $doctor->day_end['5'] }}
+                                                name="day_end_5" type="time"></td>
+                                    </tbody>
+                                    <tbody>
+                                        <td>الخميس</td>
+                                        <td><input class="form-control" value={{ $doctor->day_start['6'] }}
+                                                name="day_start_6" type="time"></td>
+
+                                        <td><input class="form-control" value={{ $doctor->day_end['6'] }}
+                                                name="day_end_6" type="time"></td>
+                                    </tbody>
+                                    <tbody>
+                                        <td>الجمعة</td>
+                                        <td><input class="form-control" value={{ $doctor->day_start['7'] }}
+                                                name="day_start_7" type="time"></td>
+
+                                        <td><input class="form-control" value={{ $doctor->day_end['7'] }}
+                                                name="day_end_7" type="time"></td>
+                                    </tbody>
+                                </table>
+
                             </div>
-
                         </div>
 
                         <div class="row row-xs align-items-center mg-b-20">
@@ -196,6 +266,4 @@
 <script src="{{ URL::asset('dashboard/plugins/pickerjs/picker.min.js') }}"></script>
 <!-- Internal form-elements js -->
 <script src="{{ URL::asset('dashboard/js/form-elements.js') }}"></script>
-
-
 @endsection

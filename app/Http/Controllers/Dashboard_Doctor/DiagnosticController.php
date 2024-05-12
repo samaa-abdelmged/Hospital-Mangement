@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Dashboard_Doctor;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AddDiagnosticDoctorRequest;
+use App\Http\Requests\AddReviewRequest;
 use App\Interfaces\doctor_dashboard\DiagnosisRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -26,12 +28,12 @@ class DiagnosticController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(AddDiagnosticDoctorRequest $request)
     {
         return $this->Diagnosis->store($request);
     }
 
-    public function addReview(Request $request)
+    public function addReview(AddReviewRequest $request)
     {
         return $this->Diagnosis->addReview($request);
     }

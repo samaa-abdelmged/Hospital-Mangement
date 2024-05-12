@@ -1,0 +1,27 @@
+<?php
+return [
+    'add_new_receipt' => 'Add a New Receipt Bill',
+    'accounts' => 'the accounts',
+    'patient_name' => 'Patient name',
+    'amount' => 'the amount',
+    'statement' => 'Statement',
+    'save' => 'save',
+    'delete_receipt' => 'delete receipt bill',
+    'edit_receipt' => 'edit receipt bill',
+    'documents' => 'Bills',
+    'add_date' => 'add date',
+    'oprations' => 'processes',
+    'print_receipt' => 'print receipt bill',
+    'receipt_document' => 'receipt bill',
+    'print' => 'print',
+    'document_informations' => 'bill information',
+    'release_date' => 'release date',
+    'notes' => 'notes',
+    'add_new_exchange' => 'add new exchange bill',
+    'delete_exchange' => 'delete exchange bill',
+    'edit_exchange' => 'edit exchange bill',
+    'new_exchange' => 'new exchange',
+    'exchange_bills' => 'exchange bills',
+    'print_exchange' => ' print exchange bill',
+
+];

@@ -19,28 +19,25 @@ class RayEmployeeRepository implements RayEmployeeRepositoryInterface
 
     public function store($request)
     {
-        try {
 
-            $ray_employee = new RayEmployee();
-            $ray_employee->name = $request->name;
-            $ray_employee->email = $request->email;
-            $ray_employee->password = Hash::make($request->password);
-            $ray_employee->save();
 
-            $RayEmployee = new Employee();
-            $RayEmployee->name = $request->name;
-            $RayEmployee->email = $request->email;
-            $RayEmployee->password = Hash::make($request->password);
-            $RayEmployee->section = 1;
-            $RayEmployee->ray_employee_id = RayEmployee::latest()->first()->id;
-            $RayEmployee->save();
+        $ray_employee = new RayEmployee();
+        $ray_employee->name = $request->name;
+        $ray_employee->email = $request->email;
+        $ray_employee->password = Hash::make($request->password);
+        $ray_employee->save();
 
-            session()->flash('add');
-            return back();
+        $RayEmployee = new Employee();
+        $RayEmployee->name = $request->name;
+        $RayEmployee->email = $request->email;
+        $RayEmployee->password = Hash::make($request->password);
+        $RayEmployee->section = 1;
+        $RayEmployee->ray_employee_id = RayEmployee::latest()->first()->id;
+        $RayEmployee->save();
 
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        session()->flash('add');
+        return back();
+
     }
 
     public function update($request, $id)

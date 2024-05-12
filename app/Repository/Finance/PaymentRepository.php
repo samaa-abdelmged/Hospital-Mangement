@@ -34,41 +34,34 @@ class PaymentRepository implements PaymentRepositoryInterface
     {
         DB::beginTransaction();
 
-        try {
+        // store receipt_accounts
+        $payment_accounts = new PaymentAccount();
+        $payment_accounts->date = date('y-m-d');
+        $payment_accounts->patient_id = $request->patient_id;
+        $payment_accounts->amount = $request->credit;
+        $payment_accounts->description = $request->description;
+        $payment_accounts->save();
 
-            // store receipt_accounts
-            $payment_accounts = new PaymentAccount();
-            $payment_accounts->date = date('y-m-d');
-            $payment_accounts->patient_id = $request->patient_id;
-            $payment_accounts->amount = $request->credit;
-            $payment_accounts->description = $request->description;
-            $payment_accounts->save();
+        // store fund_accounts
+        $fund_accounts = new FundAccounts();
+        $fund_accounts->date = date('y-m-d');
+        $fund_accounts->Payment_id = $payment_accounts->id;
+        $fund_accounts->credit = $request->credit;
+        $fund_accounts->Debit = 0.00;
+        $fund_accounts->save();
 
-            // store fund_accounts
-            $fund_accounts = new FundAccounts();
-            $fund_accounts->date = date('y-m-d');
-            $fund_accounts->Payment_id = $payment_accounts->id;
-            $fund_accounts->credit = $request->credit;
-            $fund_accounts->Debit = 0.00;
-            $fund_accounts->save();
+        // store patient_accounts
+        $patient_accounts = new PatientAccounts();
+        $patient_accounts->date = date('y-m-d');
+        $patient_accounts->patient_id = $request->patient_id;
+        $patient_accounts->Payment_id = $payment_accounts->id;
+        $patient_accounts->Debit = $request->credit;
+        $patient_accounts->credit = 0.00;
+        $patient_accounts->save();
 
-            // store patient_accounts
-            $patient_accounts = new PatientAccounts();
-            $patient_accounts->date = date('y-m-d');
-            $patient_accounts->patient_id = $request->patient_id;
-            $patient_accounts->Payment_id = $payment_accounts->id;
-            $patient_accounts->Debit = $request->credit;
-            $patient_accounts->credit = 0.00;
-            $patient_accounts->save();
-
-            DB::commit();
-            session()->flash('add');
-            return redirect()->route('Payment.index');
-
-        } catch (\Exception $e) {
-            DB::rollback();
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        DB::commit();
+        session()->flash('add');
+        return redirect()->route('Payment.index');
     }
 
     public function edit($id)
@@ -82,41 +75,37 @@ class PaymentRepository implements PaymentRepositoryInterface
     {
         DB::beginTransaction();
 
-        try {
 
-            // update receipt_accounts
-            $payment_accounts = PaymentAccount::findorfail($request->id);
-            $payment_accounts->date = date('y-m-d');
-            $payment_accounts->patient_id = $request->patient_id;
-            $payment_accounts->amount = $request->credit;
-            $payment_accounts->description = $request->description;
-            $payment_accounts->save();
 
-            // update fund_accounts
-            $fund_accounts = FundAccounts::where('Payment_id', $payment_accounts->id)->first();
-            $fund_accounts->date = date('y-m-d');
-            $fund_accounts->Payment_id = $payment_accounts->id;
-            $fund_accounts->credit = $request->credit;
-            $fund_accounts->Debit = 0.00;
-            $fund_accounts->save();
+        // update receipt_accounts
+        $payment_accounts = PaymentAccount::findorfail($request->id);
+        $payment_accounts->date = date('y-m-d');
+        $payment_accounts->patient_id = $request->patient_id;
+        $payment_accounts->amount = $request->credit;
+        $payment_accounts->description = $request->description;
+        $payment_accounts->save();
 
-            // update patient_accounts
-            $patient_accounts = PatientAccounts::where('Payment_id', $payment_accounts->id)->first();
-            $patient_accounts->date = date('y-m-d');
-            $patient_accounts->patient_id = $request->patient_id;
-            $patient_accounts->Payment_id = $payment_accounts->id;
-            $patient_accounts->Debit = $request->credit;
-            $patient_accounts->credit = 0.00;
-            $patient_accounts->save();
+        // update fund_accounts
+        $fund_accounts = FundAccounts::where('Payment_id', $payment_accounts->id)->first();
+        $fund_accounts->date = date('y-m-d');
+        $fund_accounts->Payment_id = $payment_accounts->id;
+        $fund_accounts->credit = $request->credit;
+        $fund_accounts->Debit = 0.00;
+        $fund_accounts->save();
 
-            DB::commit();
-            session()->flash('edit');
-            return redirect()->route('Payment.index');
+        // update patient_accounts
+        $patient_accounts = PatientAccounts::where('Payment_id', $payment_accounts->id)->first();
+        $patient_accounts->date = date('y-m-d');
+        $patient_accounts->patient_id = $request->patient_id;
+        $patient_accounts->Payment_id = $payment_accounts->id;
+        $patient_accounts->Debit = $request->credit;
+        $patient_accounts->credit = 0.00;
+        $patient_accounts->save();
 
-        } catch (\Exception $e) {
-            DB::rollback();
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
+        DB::commit();
+        session()->flash('edit');
+        return redirect()->route('Payment.index');
+
     }
 
     public function destroy($request)

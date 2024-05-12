@@ -43,11 +43,17 @@ Route::group(
 
             Route::resource('Sections', SectionController::class);
 
+            //############################# Doctor route ######################################
+    
             Route::resource('Doctors', DoctorController::class);
+
+            Route::get('DoctorTable/{id}', [DoctorController::class, 'DoctorTable'])->name('DoctorTable');
 
             Route::post('update_password', [DoctorController::class, 'update_password'])->name('update_password');
 
             Route::post('update_status', [DoctorController::class, 'update_status'])->name('update_status');
+            //############################# End Doctor route ######################################
+    
 
             Route::resource('Service', SingleServiceController::class);
 

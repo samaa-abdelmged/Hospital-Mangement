@@ -37,18 +37,18 @@ class StorePatientRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.required' => trans('validation.required'),
-            'email.unique' => trans('validation.unique'),
-            'password.required' => trans('validation.required'),
-            'password.sometimes' => trans('validation.sometimes'),
-            'Phone.required' => trans('validation.required'),
-            'Phone.unique' => trans('validation.unique'),
-            'Phone.numeric' => trans('validation.numeric'),
-            'Date_Birth.required' => trans('validation.required'),
-            'Date_Birth.date' => trans('validation.date'),
-            'Gender.required' => trans('validation.required'),
-            'Gender.integer' => trans('validation.integer'),
-            'Blood_Group.required' => trans('validation.required'),
+            'email.required' => trans('dashboard\validation.required'),
+            'email.unique' => trans('dashboard\validation.unique'),
+            'password.required' => trans('dashboard\validation.required'),
+            'password.sometimes' => trans('dashboard\validation.sometimes'),
+            'Phone.required' => trans('dashboard\validation.required'),
+            'Phone.unique' => trans('dashboard\validation.unique'),
+            'Phone.numeric' => trans('dashboard\validation.numeric'),
+            'Date_Birth.required' => trans('dashboard\validation.required'),
+            'Date_Birth.date' => trans('dashboard\validation.date'),
+            'Gender.required' => trans('dashboard\validation.required'),
+            'Gender.integer' => trans('dashboard\validation.integer'),
+            'Blood_Group.required' => trans('dashboard\validation.required'),
         ];
     }
 }

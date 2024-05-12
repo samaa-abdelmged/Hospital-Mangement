@@ -53,4 +53,11 @@ class AppointmentController extends Controller
         session()->flash('add');
         return back();
     }
+
+    public function destroy($request)
+    {
+        Appointment::destroy($request);
+        session()->flash('delete');
+        return redirect()->back();
+    }
 }

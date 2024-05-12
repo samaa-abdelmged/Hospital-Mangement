@@ -24,4 +24,10 @@ return array(
     'section' => 'Section',
     'submit' => 'submit',
     'update_password' => 'Update Password',
+    'edit_data' => 'edit data',
+    'change_password' => 'change password',
+    'change_status' => 'change status',
+    'delete' => 'delete',
+    'table' => 'table ',
+
 );

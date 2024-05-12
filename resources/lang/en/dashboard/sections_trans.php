@@ -12,5 +12,8 @@ return [
     'name_sections' => 'Name Sections',
     'section_doctors' => 'Section Doctors',
     'submit' => 'Submit',
-
+    'edit_data' => 'edit data',
+    'change_password' => 'change password',
+    'change_status' => 'change status',
+    'delete' => 'delete',
 ];

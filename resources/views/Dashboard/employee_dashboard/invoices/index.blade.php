@@ -1,6 +1,6 @@
 @extends('Dashboard.layouts.master-employee')
 @section('title')
-    الكشوفات
+    {{ trans('employee/invoices.reveals') }}
 @stop
 @section('css')
 
@@ -12,8 +12,9 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">الكشوفات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
-                    الفواتير</span>
+                <h4 class="content-title mb-0 my-auto">{{ trans('employee/invoices.reveals') }}</h4><span
+                    class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                    {{ trans('employee/invoices.invoices') }}</span>
             </div>
         </div>
     </div>
@@ -34,12 +35,13 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>تاريخ الفاتورة</th>
-                                    <th>اسم المريض</th>
-                                    <th>اسم الدكتور</th>
-                                    <th>المطلوب</th>
-                                    <th>حالة الفاتورة</th>
-                                    <th>العمليات</th>
+                                    <th> {{ trans('employee/invoices.invoice_date') }}
+                                    </th>
+                                    <th> {{ trans('employee/invoices.patient_name') }}</th>
+                                    <th>{{ trans('employee/invoices.doctor_name') }}</th>
+                                    <th>{{ trans('employee/invoices.required') }}</th>
+                                    <th>{{ trans('employee/invoices.invoice_status') }} </th>
+                                    <th>{{ trans('employee/invoices.processes') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,9 +56,11 @@
                                         <td>{{ $invoice->description }}</td>
                                         <td>
                                             @if ($invoice->case == 0)
-                                                <span class="badge badge-danger">تحت الاجراء</span>
+                                                <span class="badge badge-danger">
+                                                    {{ trans('employee/invoices.under_procedure') }}</span>
                                             @else
-                                                <span class="badge badge-success">مكتملة</span>
+                                                <span
+                                                    class="badge badge-success">{{ trans('employee/invoices.completed') }}</span>
                                             @endif
                                         </td>
 
@@ -64,13 +68,14 @@
                                             <div class="dropdown">
                                                 <button aria-expanded="false" aria-haspopup="true"
                                                     class="btn ripple btn-outline-primary btn-sm" data-toggle="dropdown"
-                                                    type="button">{{ trans('doctors.Processes') }}<i
+                                                    type="button">
+                                                    {{ trans('employee/invoices_laboratorie.processes') }}<i
                                                         class="fas fa-caret-down mr-1"></i></button>
                                                 <div class="dropdown-menu tx-13">
                                                     <a class="dropdown-item"
                                                         href="{{ route('employee_invoices.edit', $invoice->id) }}"><i
-                                                            class="text-primary fa fa-stethoscope"></i>&nbsp;&nbsp;اضافة
-                                                        تشخيص </a>
+                                                            class="text-primary fa fa-stethoscope"></i>&nbsp;&nbsp;{{ trans('employee/invoices.add_diagnosis') }}
+                                                    </a>
                                                 </div>
                                             </div>
                                         </td>

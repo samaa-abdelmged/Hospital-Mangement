@@ -107,10 +107,7 @@
                                                             class="text-warning fas fa-syringe"></i>&nbsp;&nbsp;
                                                         {{ trans('doctor/reveals.Transfer_lab') }}
                                                     </a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal"
-                                                        data-target="#delete"><i
-                                                            class="text-danger  ti-trash"></i>&nbsp;&nbsp;
-                                                        {{ trans('doctor/reveals.delete_data') }}</a>
+
                                                 </div>
                                             </div>
                                         </td>

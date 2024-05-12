@@ -19,28 +19,24 @@ class LaboratorieEmployeeRepository implements LaboratorieEmployeeRepositoryInte
 
     public function store($request)
     {
-        try {
 
-            $laboratorie_employee = new LaboratorieEmployee();
-            $laboratorie_employee->name = $request->name;
-            $laboratorie_employee->email = $request->email;
-            $laboratorie_employee->password = Hash::make($request->password);
-            $laboratorie_employee->save();
+        $laboratorie_employee = new LaboratorieEmployee();
+        $laboratorie_employee->name = $request->name;
+        $laboratorie_employee->email = $request->email;
+        $laboratorie_employee->password = Hash::make($request->password);
+        $laboratorie_employee->save();
 
-            $LaboratorieEmployee = new Employee();
-            $LaboratorieEmployee->name = $request->name;
-            $LaboratorieEmployee->email = $request->email;
-            $LaboratorieEmployee->password = Hash::make($request->password);
-            $LaboratorieEmployee->section = 2;
-            $LaboratorieEmployee->laboratorie_employee_id = LaboratorieEmployee::latest()->first()->id;
-            $LaboratorieEmployee->save();
+        $LaboratorieEmployee = new Employee();
+        $LaboratorieEmployee->name = $request->name;
+        $LaboratorieEmployee->email = $request->email;
+        $LaboratorieEmployee->password = Hash::make($request->password);
+        $LaboratorieEmployee->section = 2;
+        $LaboratorieEmployee->laboratorie_employee_id = LaboratorieEmployee::latest()->first()->id;
+        $LaboratorieEmployee->save();
 
-            session()->flash('add');
-            return back();
+        session()->flash('add');
+        return back();
 
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
     }
 
     public function update($request, $id)

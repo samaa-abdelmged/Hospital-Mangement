@@ -12,4 +12,9 @@ class Service extends Model
     use HasFactory;
     public $translatedAttributes = ['name'];
     public $fillable = ['price', 'description', 'status'];
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class, 'id');
+    }
 }

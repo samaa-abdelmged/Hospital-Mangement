@@ -13,5 +13,10 @@ return [
     'name_sections' => 'اسم القسم',
     'section_doctors' => 'اطباء القسم',
     'submit' => 'تاكيد',
+    'edit_data' => 'تعديل البيانات',
+    'change_password' => 'تغير كلمة المرور',
+    'change_status' => 'تغيير الحالة',
+    'delete' => 'حذف البيانات',
+
 
 ];

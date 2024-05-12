@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard_Employee;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LabRequest;
 use App\Interfaces\Dashboard_Employee\LaboratorieEmployee\LaboratorieEmployeeRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class LaboratoryEmployeeController extends Controller
         return $this->employee->index();
     }
 
-    public function store(Request $request)
+    public function store(LabRequest $request)
     {
         return $this->employee->store($request);
     }

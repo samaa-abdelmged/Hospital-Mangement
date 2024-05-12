@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SectionRequest;
 use App\Interfaces\Sections\SectionRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -22,12 +23,12 @@ class SectionController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(SectionRequest $request)
     {
         return $this->Sections->store($request);
     }
 
-    public function update(Request $request)
+    public function update(SectionRequest $request)
     {
         return $this->Sections->update($request);
     }

@@ -22,6 +22,7 @@ class DoctorFactory extends Factory
      */
     public function definition()
     {
+
         return [
 
             'name' => $this->faker->name,
@@ -31,6 +32,25 @@ class DoctorFactory extends Factory
             'phone' => $this->faker->phoneNumber,
             'section_id' => Section::all()->random()->id,
 
+            'day_start' => array(
+                '1' => '00:00',
+                '2' => '00:00',
+                '3' => '00:00',
+                '4' => '00:00',
+                '5' => '00:00',
+                '6' => '00:00',
+                '7' => '00:00',
+            ),
+
+            'day_end' => array(
+                '1' => '00:00',
+                '2' => '00:00',
+                '3' => '00:00',
+                '4' => '00:00',
+                '5' => '00:00',
+                '6' => '00:00',
+                '7' => '00:00',
+            ),
         ];
     }
 }

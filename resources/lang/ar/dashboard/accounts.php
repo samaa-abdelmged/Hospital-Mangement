@@ -1,0 +1,27 @@
+<?php
+return [
+    'add_new_receipt' => 'اضافة سند قبض جديد',
+    'accounts' => 'الحسابات',
+    'patient_name' => 'اسم المريض',
+    'amount' => 'المبلغ',
+    'statement' => 'البيان',
+    'save' => 'حفظ',
+    'delete_receipt' => 'حذف سند قبض',
+    'edit_receipt' => 'تعديل سند قبض',
+    'documents' => 'سندات ',
+    'add_date' => 'تاريخ الاضافة',
+    'oprations' => 'العمليات',
+    'print_receipt' => 'طباعه سند قبض',
+    'receipt_document' => 'سند قبض',
+    'print' => 'طباعة',
+    'document_informations' => 'معلومات السند',
+    'release_date' => 'تاريخ الاصدار',
+    'notes' => 'ملاحظات',
+    'add_new_exchange' => 'اضافة سند صرف جديد',
+    'delete_exchange' => 'حذف سند صرف',
+    'edit_exchange' => 'تعديل سند صرف',
+    'new_exchange' => 'صرف جديد',
+    'exchange_bills' => 'سندات صرف',
+    'print_exchange' => 'طباعه سند صرف',
+
+];

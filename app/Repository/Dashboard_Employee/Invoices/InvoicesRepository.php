@@ -24,9 +24,8 @@ class InvoicesRepository implements InvoicesRepositoryInterface
     {
         if (auth()->user()->section === 1) {
             $invoice = Ray::find($id);
-            if ($invoice->where('employee_id', auth()->user()->ray_employee_id)) {
-                return view('Dashboard.employee_dashboard.invoices.add_diagnosis', compact('invoice'));
-            }
+            return view('Dashboard.employee_dashboard.invoices.add_diagnosis', compact('invoice'));
+
         }
         return redirect()->route('404');
 
@@ -37,36 +36,40 @@ class InvoicesRepository implements InvoicesRepositoryInterface
         if (auth()->user()->section === 1) {
 
             $invoice = Ray::find($id);
-            if ($invoice->where('employee_id', auth()->user()->ray_employee_id)) {
-                $invoice->update([
-                    'employee_id' => auth()->user()->ray_employee_id,
-                    'description_employee' => $request->description_employee,
-                    'case' => 1,
-                ]);
-                //Upload img
-                $this->verifyAndStoreImage($request, 'photos', 'Rays', 'upload_image', auth()->user()->ray_employee_id, 'App\Models\Ray');
-                session()->flash('edit');
-                return redirect()->route('employee_invoices.index');
-            }
+
+            $invoice->update([
+                'employee_id' => auth()->user()->ray_employee_id,
+                'description_employee' => $request->description_employee,
+                'case' => 1,
+            ]);
+            //Upload img
+            $this->verifyAndStoreImage($request, 'photos', 'Rays', 'upload_image', auth()->user()->ray_employee_id, 'App\Models\Ray');
+            session()->flash('edit');
+            return redirect()->route('employee_invoices.index');
+
         }
         return redirect()->route('404');
 
-/*
-if ($request->hasFile('photos')) {
+        /*
+        if ($request->hasFile('photos')) {
 
-foreach ($request->photos as $photo) {
-//Upload img
-$this->verifyAndStoreImage($photo, 'photo', 'Rays', 'upload_image', $invoice->id, 'App\Models\Ray');
-}
+        foreach ($request->photos as $photo) {
+        //Upload img
+        $this->verifyAndStoreImage($photo, 'photo', 'Rays', 'upload_image', $invoice->id, 'App\Models\Ray');
+        }
 
-}
- */
+        }
+         */
 
     }
     public function completed_invoices()
     {
-        $invoices = Ray::where('case', 1)->where('employee_id', auth()->user()->ray_employee_id)->get();
-        return view('Dashboard.employee_dashboard.invoices.completed_invoices', compact('invoices'));
+        if (auth()->user()->section === 1) {
+
+            $invoices = Ray::where('case', 1)->get();
+            return view('Dashboard.employee_dashboard.invoices.completed_invoices', compact('invoices'));
+        }
+        return redirect()->route('404');
 
     }
 
@@ -74,9 +77,8 @@ $this->verifyAndStoreImage($photo, 'photo', 'Rays', 'upload_image', $invoice->id
     {
         if (auth()->user()->section === 1) {
             $rays = Ray::findorFail($id);
-            if ($rays->employee_id == auth()->user()->ray_employee_id) {
-                return view('Dashboard.employee_dashboard.invoices.patient_details', compact('rays'));
-            }
+            return view('Dashboard.employee_dashboard.invoices.patient_details', compact('rays'));
+
         }
         return redirect()->route('404');
 

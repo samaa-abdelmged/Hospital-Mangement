@@ -51,7 +51,8 @@
                                     {{ trans('dashboard/doctors.name') }}</label>
                             </div>
                             <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                <input class="form-control" name="name" type="text" autofocus>
+                                <input class="form-control  @error('name') is-invalid @enderror" name="name"
+                                    type="text" autofocus>
                             </div>
                         </div>
 
@@ -61,7 +62,8 @@
                                     {{ trans('dashboard/doctors.email') }}</label>
                             </div>
                             <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                <input class="form-control" name="email" type="email">
+                                <input class="form-control   @error('email') is-invalid @enderror" name="email"
+                                    type="email">
                             </div>
                         </div>
 
@@ -71,7 +73,8 @@
                                     {{ trans('dashboard/doctors.password') }}</label>
                             </div>
                             <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                <input class="form-control" name="password" type="password">
+                                <input class="form-control   @error('password') is-invalid @enderror" name="password"
+                                    type="password">
                             </div>
                         </div>
 
@@ -81,7 +84,8 @@
                                     {{ trans('dashboard/doctors.phone') }}</label>
                             </div>
                             <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                <input class="form-control" name="phone" type="tel">
+                                <input class="form-control   @error('phone') is-invalid @enderror" name="phone"
+                                    type="tel">
                             </div>
                         </div>
 
@@ -99,47 +103,33 @@
                                         <option value="{{ $section->id }}">{{ $section->name }}</option>
                                     @endforeach
                                 </select>
+                                @error('section_id')
+                                    <span class="alert alert-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
                         </div>
 
-                        <div class="row row-xs align-items-center mg-b-20">
-                            <div class="col-md-1">
-                                <label for="exampleInputEmail1">
-                                    {{ trans('dashboard/doctors.appointments') }}</label>
-                            </div>
-
-                            <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                <select multiple="multiple" class="testselect2" name="appointments[]">
-                                    <option selected name="appointments[]" value="" selected disabled>-- حدد
-                                        المواعيد --</option>
-                                    @foreach ($appointments as $appointment)
-                                        <option value="{{ $appointment->id }}">{{ $appointment->name }}</option>
-                                    @endforeach
-                                </select>
-
-                            </div>
-
-                        </div>
-
-                        <div class="row row-xs align-items-center mg-b-20">
-                            <div class="col-md-1">
-                                <label for="exampleInputEmail1">
-                                    {{ trans('dashboard/doctors.doctor_photo') }}</label>
-                            </div>
-                            <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
-                                <img style="border-radius:50%" width="150px" height="150px" id="output" />
-                            </div>
-                        </div>
-
-                        <button type="submit"
-                            class="btn btn-main-primary pd-x-30 mg-r-5 mg-t-5">{{ trans('dashboard/doctors.submit') }}</button>
                     </div>
-                </form>
+
+                    <div class="row row-xs align-items-center mg-b-20">
+                        <div class="col-md-1">
+                            <label for="exampleInputEmail1">
+                                {{ trans('dashboard/doctors.doctor_photo') }}</label>
+                        </div>
+                        <div class="col-md-11 mg-t-5 mg-md-t-0 ">
+                            <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
+                            <img style="border-radius:50%" width="150px" height="150px" id="output" />
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                        class="btn btn-main-primary pd-x-30 mg-r-5 mg-t-5">{{ trans('dashboard/doctors.submit') }}</button>
             </div>
+            </form>
         </div>
     </div>
+</div>
 </div>
 <!-- /row -->
 </div>

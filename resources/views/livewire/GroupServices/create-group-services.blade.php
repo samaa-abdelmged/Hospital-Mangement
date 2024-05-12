@@ -2,7 +2,7 @@
 
     @if ($ServiceSaved)
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong> تم حفظ البيانات بنجاح. </strong>
+            <strong>{{ trans('dashboard/services.save_successfully') }} </strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -11,7 +11,7 @@
 
     @if ($ServiceUpdated)
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong> تم تعديل البيانات بنجاح. </strong>
+            <strong>{{ trans('dashboard/services.edit_successfully') }} </strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

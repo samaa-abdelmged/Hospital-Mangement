@@ -41,7 +41,6 @@
                     </svg>
                     <span class="side-menu__label"> {{ trans('main-sidebar_trans.index') }}</span></a>
             </li>
-            <li class="side-item side-item-category">General</li>
 
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
@@ -77,7 +76,6 @@
 
                 </ul>
             </li>
-            <li class="side-item side-item-category">{{ trans('main-sidebar_trans.Services') }}</li>
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -132,14 +130,16 @@
                         <circle cx="9.5" cy="7.5" r="1.5" />
                         <circle cx="14.5" cy="7.5" r="1.5" />
                         <circle cx="17.5" cy="11.5" r="1.5" />
-                    </svg><span class="side-menu__label">الفواتير</span><i class="angle fe fe-chevron-down"></i></a>
+                    </svg><span class="side-menu__label">{{ trans('main-sidebar_trans.invoices') }}</span><i
+                        class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{ route('single_invoices') }}">فاتورة خدمة مفردة</a></li>
-                    <li><a class="slide-item" href="{{ route('GroupInvoice') }}">فاتورة خدمة مجمعة</a></li>
+                    <li><a class="slide-item" href="{{ route('single_invoices') }}">
+                            {{ trans('main-sidebar_trans.single_service_invoice') }} </a></li>
+                    <li><a class="slide-item" href="{{ route('GroupInvoice') }}">
+                            {{ trans('main-sidebar_trans.group_service_invoice') }} </a></li>
 
                 </ul>
             </li>
-            <li class="side-item side-item-category">COMPONENTS</li>
             <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="{{ url('/' . ($page = '#')) }}"><svg
                         xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -147,10 +147,13 @@
                         <path d="M15 11V4H4v8.17l.59-.58.58-.59H6z" opacity=".3" />
                         <path
                             d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-5 7c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10zM4.59 11.59l-.59.58V4h11v7H5.17l-.58.59z" />
-                    </svg><span class="side-menu__label">الحسابات</span><i class="angle fe fe-chevron-down"></i></a>
+                    </svg><span class="side-menu__label">{{ trans('main-sidebar_trans.accounts') }}</span><i
+                        class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{ route('Receipt.index') }}">سند قبض</a></li>
-                    <li><a class="slide-item" href="{{ route('Payment.index') }}">سند صرف</a></li>
+                    <li><a class="slide-item" href="{{ route('Receipt.index') }}">
+                            {{ trans('main-sidebar_trans.catch_receipt') }}</a></li>
+                    <li><a class="slide-item" href="{{ route('Payment.index') }}">
+                            {{ trans('main-sidebar_trans.exchange_reciept') }}</a></li>
             </li>
         </ul>
         </li>
@@ -161,10 +164,12 @@
                     <path d="M13 4H6v16h12V9h-5V4zm3 14H8v-2h8v2zm0-6v2H8v-2h8z" opacity=".3" />
                     <path
                         d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z" />
-                </svg><span class="side-menu__label">الأشعة</span><i class="angle fe fe-chevron-down"></i></a>
+                </svg><span class="side-menu__label">{{ trans('main-sidebar_trans.Rays') }}</span><i
+                    class="angle fe fe-chevron-down"></i></a>
             <ul class="slide-menu">
-                <li><a class="slide-item" href="{{ route('ray_employee.index') }}">قائمة الموظفين </a></li>
-                <li><a class="slide-item" href="{{ route('Payment.index') }}"> قائمة الكشوفات</a></li>
+                <li><a class="slide-item" href="{{ route('ray_employee.index') }}">
+                        {{ trans('main-sidebar_trans.employees_list') }} </a></li>
+
 
             </ul>
 
@@ -176,9 +181,11 @@
                     <path d="M13 4H6v16h12V9h-5V4zm3 14H8v-2h8v2zm0-6v2H8v-2h8z" opacity=".3" />
                     <path
                         d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z" />
-                </svg><span class="side-menu__label">المختبر</span><i class="angle fe fe-chevron-down"></i></a>
+                </svg><span class="side-menu__label">{{ trans('main-sidebar_trans.lab') }}</span><i
+                    class="angle fe fe-chevron-down"></i></a>
             <ul class="slide-menu">
-                <li><a class="slide-item" href="{{ route('laboratorie_employee.index') }}">قائمة الموظفين </a>
+                <li><a class="slide-item" href="{{ route('laboratorie_employee.index') }}">
+                        {{ trans('main-sidebar_trans.employees_list') }} </a>
                 </li>
             </ul>
         </li>
@@ -193,11 +200,15 @@
                     <path
                         d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zM7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9z" />
                     <circle cx="12" cy="9" r="2.5" />
-                </svg><span class="side-menu__label">المواعيد</span><i class="angle fe fe-chevron-down"></i></a>
+                </svg><span class="side-menu__label">{{ trans('main-sidebar_trans.appointments') }}</span><i
+                    class="angle fe fe-chevron-down"></i></a>
             <ul class="slide-menu">
-                <li><a class="slide-item" href="{{ route('appointments.index') }}">قائمة المواعيد الغير مؤكدة</a>
+                <li><a class="slide-item"
+                        href="{{ route('appointments.index') }}">{{ trans('main-sidebar_trans.unconfirmed_appointments') }}</a>
                 </li>
-                <li><a class="slide-item" href="{{ route('appointments.index2') }}">قائمة المواعيد المؤكدة</a>
+                <li><a class="slide-item"
+                        href="{{ route('appointments.index2') }}">{{ trans('main-sidebar_trans.confirmed_appointments') }}
+                    </a>
                 </li>
 
             </ul>
